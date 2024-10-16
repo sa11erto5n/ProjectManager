@@ -1,0 +1,98 @@
+{% extends 'frontend/index.html' %}
+{% load static i18n %}
+
+{% block subtitle %}
+  {% trans 'Login' %}
+{% endblock %}
+
+{% block extra_css %}
+  <link href="{% static 'auth/css/auth.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block nav %}
+
+{% endblock %}
+<!-- auth/log-in.html -->
+
+{% block content %}
+  <header id="header" class="ex-2-header">
+    <div class="container border shadow-sm m-auto mt-5" style="min-width: 360px;max-width: 45%;">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="text-center text-danger">{% trans 'Log In' %}</h1>
+          <p class="text-center">
+            {% comment %} {% trans "You don't have an account? Then please" %} <a class="white" href="{% url 'user_auth:signup' %}">{% trans 'Sign Up' %}</a> {% endcomment %}
+          </p>
+          <div class="form-container">
+            <div id="loginMessage" class="alert alert-danger d-none"></div>
+            <form id="logInForm" data-toggle="validator" data-focus="false" method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                <label class="label-control" for="identifier">{% trans 'Email or Phone Number' %}</label>
+                <input type="text" class="form-control" id="identifier" name="identifier" required />
+                <div class="help-block with-errors"></div>
+              </div>
+
+              <!-- Password Input Field with Show/Hide Icon -->
+              <div class="form-group position-relative d-flex flex-column position-relative mb-3">
+                <label class="label-control" for="lpassword">{% trans 'Password' %}</label>
+                <input type="password" class="form-control" id="lpassword" name="lpassword" required />
+
+                <!-- Button to Show/Hide Password -->
+                <button type="button" class="password-toggle btn btn-blue btn-sm text-light position-absolute bottom-0 start-0" style="cursor: pointer;padding: 4.5px;" onclick="togglePassword()"><i id="toggleIcon" class="fas fa-eye fs-4"></i></button>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-blue d-block m-auto my-2">{% trans 'LOG IN' %}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    document.getElementById('logInForm').addEventListener('submit', function (e) {
+      e.preventDefault()
+      const formData = new FormData(this)
+    
+      fetch("{% url 'user_auth:login' %}", {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            window.location.href = "{% url 'dash:home' %}"
+          } else {
+            const messageDiv = document.getElementById('loginMessage')
+            messageDiv.textContent = data.error
+            messageDiv.classList.remove('d-none')
+          }
+        })
+        .catch((error) => console.error('Error:', error))
+    })
+    
+    function togglePassword() {
+      var passwordInput = document.getElementById('lpassword')
+      var toggleIcon = document.getElementById('toggleIcon')
+    
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text'
+        toggleIcon.classList.remove('fa-eye')
+        toggleIcon.classList.add('fa-eye-slash')
+      } else {
+        passwordInput.type = 'password'
+        toggleIcon.classList.remove('fa-eye-slash')
+        toggleIcon.classList.add('fa-eye')
+      }
+    }
+  </script>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends 'dashboard/index.html' %}
+{% load static i18n %}
+{% load menu_tags %}
+
+{% block extra_css %}
+
+{% endblock %}
+
+{% block subtitle %}
+  -{% trans 'Users' %}
+{% endblock %}
+
+{% block heading %}
+  <div class="d-flex align-items-center justify-content-between">
+    {% trans 'Add a new User' %}
+  </div>
+{% endblock %}
+
+{% block PageContent %}
+  <div class="bg-light p-2 m-2">
+    <div class="">
+      <form method="POST" class="d-flex" id="profileForm" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="d-flex flex-column flex-grow-1" style="margin-left: 1rem;">
+          <div class="d-flex">
+            <div class="col m-2 me-0 flex-grow-1">
+              <label for="first_name" class="form-label">{% trans 'First Name' %}</label>
+              <input type="text" class="form-control" id="first_name" name="first_name" required />
+            </div>
+            <div class="col m-2 me-0 flex-grow-1">
+              <label for="last_name" class="form-label">{% trans 'Last Name' %}</label>
+              <input type="text" class="form-control" id="last_name" name="last_name" required />
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="col m-2 me-0 flex-grow-1">
+              <label for="p_number" class="form-label">{% trans 'Phone Number' %}</label>
+              <input type="text" class="form-control" id="p_number" name="p_number" required />
+            </div>
+            <div class="col m-2 me-0 flex-grow-1">
+              <label for="acc_type" class="form-label">{% trans 'Account Type' %}</label>
+              <select class="form-select" id="acc_type" name="acc_type" required>
+                <option value="seller">
+                  {% trans 'Seller' %}
+                </option>
+                <option value="contributer">
+                  {% trans 'Contributor' %}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col m-auto" style="width: 350px;">
+            <label for="user_password" class="form-label">{% trans 'Password' %}</label>
+            <input type="password" class="form-control" id="user_password" name="user_password" required />
+          </div>
+
+          <ul id="error-list" class="text-danger mt-2"></ul>
+
+          <button type="submit" class="btn btn-blue d-block me-auto">{% trans 'Add user' %}</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      const form = document.getElementById('profileForm')
+      const errorList = document.getElementById('error-list')
+      
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault()
+        const formData = new FormData(form)
+        const response = await fetch("{% url 'dash:create_user' %}", {
+          method: 'POST',
+          body: formData
+        })
+      
+        const data = await response.json()
+        errorList.innerHTML = '' // Clear previous errors
+      
+        if (data.status === 'error') {
+          const errors = data.errors
+          for (const [key, value] of Object.entries(errors)) {
+            const li = document.createElement('li')
+            li.textContent = value
+            errorList.appendChild(li)
+          }
+        } else if (data.status === 'success') {
+          window.location.href = "{% url 'dash:users' %}"
+        }
+      })
+    </script>
+  </div>
+{% endblock %}

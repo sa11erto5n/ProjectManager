@@ -1,0 +1,465 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-16 12:14+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\core\settings\base.py:78
+msgid "English"
+msgstr "إنجليزي"
+
+#: .\core\settings\base.py:79
+msgid "Arabic"
+msgstr "عربي"
+
+#: .\dashboard\menus.py:5
+msgid "Main Menu"
+msgstr "القائمة الرئيسية"
+
+#: .\dashboard\menus.py:9 .\dashboard\templates\dashboard\index.html:49
+msgid "Home Page"
+msgstr "الصفحة الرئيسية"
+
+#: .\dashboard\menus.py:16 .\dashboard\templates\dashboard\index.html:61
+msgid "Participants"
+msgstr "مشاركون"
+
+#: .\dashboard\menus.py:23 .\dashboard\templates\dashboard\index.html:73
+#: .\dashboard\templates\dashboard\products\create.html:11
+msgid "Products"
+msgstr "منتجات"
+
+#: .\dashboard\menus.py:33 .\dashboard\templates\dashboard\index.html:93
+msgid "Other"
+msgstr "آخر"
+
+#: .\dashboard\menus.py:36 .\dashboard\templates\dashboard\index.html:67
+#: .\dashboard\templates\dashboard\index.html:86
+msgid "My Account"
+msgstr "حسابي"
+
+#: .\dashboard\models.py:9 .\dashboard\products_views.py:20
+#: .\dashboard\products_views.py:26
+msgid "Product Name"
+msgstr "اسم المنتج"
+
+#: .\dashboard\models.py:10 .\dashboard\products_views.py:21
+msgid "Product Quantity"
+msgstr "كمية المنتج"
+
+#: .\dashboard\products_views.py:19
+msgid "Product Image"
+msgstr "صورة المنتج"
+
+#: .\dashboard\products_views.py:22
+msgid "Creation Date"
+msgstr "تاريخ الإنشاء"
+
+#: .\dashboard\products_views.py:27
+msgid "Products List"
+msgstr "قائمة المنتجات"
+
+#: .\dashboard\templates\dashboard\create_user.html:10
+#: .\dashboard\templates\dashboard\users.html:16
+#: .\dashboard\templates\dashboard\users.html:21
+msgid "Users"
+msgstr "المستخدمون"
+
+#: .\dashboard\templates\dashboard\create_user.html:15
+msgid "Add a new User"
+msgstr "إضافة مستخدم جديد"
+
+#: .\dashboard\templates\dashboard\create_user.html:27
+#: .\dashboard\templates\dashboard\user-edit.html:71
+#: .\dashboard\templates\dashboard\user-view.html:37
+#: .\dashboard\templates\dashboard\users.html:36
+msgid "First Name"
+msgstr "الاسم الأول"
+
+#: .\dashboard\templates\dashboard\create_user.html:31
+#: .\dashboard\templates\dashboard\user-edit.html:76
+#: .\dashboard\templates\dashboard\user-view.html:38
+#: .\dashboard\templates\dashboard\users.html:39
+msgid "Last Name"
+msgstr "اسم العائلة"
+
+#: .\dashboard\templates\dashboard\create_user.html:37
+#: .\dashboard\templates\dashboard\user-edit.html:83
+#: .\dashboard\templates\dashboard\user-view.html:47
+#: .\frontend\templates\frontend\index.html:281
+msgid "Phone Number"
+msgstr "رقم التليفون"
+
+#: .\dashboard\templates\dashboard\create_user.html:41
+#: .\dashboard\templates\dashboard\user-edit.html:87 .\user_auth\models.py:44
+msgid "Account Type"
+msgstr "نوع الحساب"
+
+#: .\dashboard\templates\dashboard\create_user.html:44
+#: .\dashboard\templates\dashboard\user-edit.html:90 .\user_auth\models.py:39
+msgid "Seller"
+msgstr "بائع"
+
+#: .\dashboard\templates\dashboard\create_user.html:47
+#: .\dashboard\templates\dashboard\user-edit.html:93 .\user_auth\models.py:40
+msgid "Contributor"
+msgstr "مساهم"
+
+#: .\dashboard\templates\dashboard\create_user.html:53
+#: .\user_auth\templates\auth\log-in.html:39
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: .\dashboard\templates\dashboard\create_user.html:59
+msgid "Add user"
+msgstr "إضافة مستخدم"
+
+#: .\dashboard\templates\dashboard\index.html:6
+msgid "Dashboard"
+msgstr "لوحة القيادة"
+
+#: .\dashboard\templates\dashboard\index.html:44
+msgid "dashboard"
+msgstr "لوحة القيادة"
+
+#: .\dashboard\templates\dashboard\index.html:56
+msgid "administator"
+msgstr "مدير"
+
+#: .\dashboard\templates\dashboard\index.html:81
+msgid "contributer"
+msgstr "مساهم"
+
+#: .\dashboard\templates\dashboard\index.html:99
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#: .\dashboard\templates\dashboard\index.html:142
+msgid "Copyright"
+msgstr "حقوق الطبع والنشر"
+
+#: .\dashboard\templates\dashboard\index.html:142
+msgid "Your Website 2024"
+msgstr "موقعك 2024"
+
+#: .\dashboard\templates\dashboard\products\create.html:15
+#: .\dashboard\templates\dashboard\products\create.html:23
+msgid "Create Product"
+msgstr "إنشاء المنتج"
+
+#: .\dashboard\templates\dashboard\user-edit.html:40
+#: .\dashboard\templates\dashboard\user-edit.html:44
+#: .\dashboard\templates\dashboard\user-view.html:54
+msgid "Edit Profile"
+msgstr "تعديل الملف الشخصي"
+
+#: .\dashboard\templates\dashboard\user-edit.html:99
+msgid "new Password"
+msgstr "كلمة المرور الجديدة"
+
+#: .\dashboard\templates\dashboard\user-edit.html:109
+msgid "Save Changes"
+msgstr "حفظ التغييرات"
+
+#: .\dashboard\templates\dashboard\user-view.html:10
+msgid "Profile"
+msgstr "حساب تعريفي"
+
+#: .\dashboard\templates\dashboard\user-view.html:14
+msgid "User Profile"
+msgstr "الملف الشخصي للمستخدم"
+
+#: .\dashboard\templates\dashboard\user-view.html:41
+#: .\dashboard\templates\dashboard\user-view.html:43
+#: .\dashboard\templates\dashboard\users.html:42
+msgid "Account type"
+msgstr "نوع الحساب"
+
+#: .\dashboard\templates\dashboard\user-view.html:43
+msgid "Administrator"
+msgstr "مدير"
+
+#: .\dashboard\templates\dashboard\user-view.html:48
+msgid "Last Login"
+msgstr "أخر تسجيل دخول"
+
+#: .\dashboard\templates\dashboard\users.html:33
+msgid "Profile Picture"
+msgstr "صورة الملف الشخصي"
+
+#: .\dashboard\templates\dashboard\users.html:45
+msgid "Actions"
+msgstr "الإجراءات"
+
+#: .\dashboard\views.py:44
+msgid "First Name is required."
+msgstr "الاسم الأول مطلوب."
+
+#: .\dashboard\views.py:46
+msgid "Last Name is required."
+msgstr "الاسم الأخير مطلوب."
+
+#: .\dashboard\views.py:48
+msgid "Phone number must be 10 digits long."
+msgstr "يجب أن يكون رقم الهاتف مكونًا من 10 أرقام."
+
+#: .\dashboard\views.py:50
+msgid "Invalid account type selected."
+msgstr "تم اختيار نوع حساب غير صالح."
+
+#: .\dashboard\views.py:52
+msgid "Password must be at least 4 characters long."
+msgstr "يجب أن تتكون كلمة المرور من 4 أحرف على الأقل."
+
+#: .\frontend\templates\frontend\index.html:8
+msgid "A description for your website"
+msgstr "وصف لموقعك على الويب"
+
+#: .\frontend\templates\frontend\index.html:9
+msgid "Author Name"
+msgstr "اسم المؤلف"
+
+#: .\frontend\templates\frontend\index.html:11
+msgid "Creative"
+msgstr "مبدع"
+
+#: .\frontend\templates\frontend\index.html:48
+msgid "Start Bootstrap"
+msgstr "ابدأ Bootstrap"
+
+#: .\frontend\templates\frontend\index.html:49
+msgid "Toggle navigation"
+msgstr "تبديل التنقل"
+
+#: .\frontend\templates\frontend\index.html:53
+msgid "About"
+msgstr "عن"
+
+#: .\frontend\templates\frontend\index.html:56
+msgid "Services"
+msgstr "خدمات"
+
+#: .\frontend\templates\frontend\index.html:59
+msgid "Portfolio"
+msgstr "مَلَفّ"
+
+#: .\frontend\templates\frontend\index.html:62
+msgid "Contact"
+msgstr "اتصال"
+
+#: .\frontend\templates\frontend\index.html:75
+msgid "Your Favorite Place for Free Bootstrap Themes"
+msgstr "مكانك المفضل للحصول على مواضيع Bootstrap المجانية"
+
+#: .\frontend\templates\frontend\index.html:80
+msgid ""
+"Start Bootstrap can help you build better websites using the Bootstrap "
+"framework! Just download a theme and start customizing, no strings attached!"
+msgstr ""
+"يمكن أن يساعدك Start Bootstrap في إنشاء مواقع ويب أفضل باستخدام إطار عمل "
+"Bootstrap! ما عليك سوى تنزيل أحد السمات والبدء في التخصيص، دون أي قيود!"
+
+#: .\frontend\templates\frontend\index.html:82
+msgid "Find Out More"
+msgstr "اكتشف المزيد"
+
+#: .\frontend\templates\frontend\index.html:92
+msgid "We've got what you need!"
+msgstr "لقد حصلنا على ما تحتاجه!"
+
+#: .\frontend\templates\frontend\index.html:95
+msgid ""
+"Start Bootstrap has everything you need to get your new website up and "
+"running in no time! Choose one of our open source, free to download, and "
+"easy to use themes! No strings attached!"
+msgstr ""
+"يحتوي Start Bootstrap على كل ما تحتاجه لبدء تشغيل موقع الويب الجديد الخاص بك"
+" في وقت قصير! اختر أحد موضوعاتنا مفتوحة المصدر والمجانية للتنزيل وسهلة "
+"الاستخدام! بدون أي قيود!"
+
+#: .\frontend\templates\frontend\index.html:97
+msgid "Get Started"
+msgstr "البدء"
+
+#: .\frontend\templates\frontend\index.html:105
+msgid "At Your Service"
+msgstr "في خدمتكم"
+
+#: .\frontend\templates\frontend\index.html:113
+msgid "Sturdy Themes"
+msgstr "مواضيع قوية"
+
+#: .\frontend\templates\frontend\index.html:115
+msgid "Our themes are updated regularly to keep them bug free!"
+msgstr "يتم تحديث موضوعاتنا بانتظام لإبقائها خالية من الأخطاء!"
+
+#: .\frontend\templates\frontend\index.html:124
+msgid "Up to Date"
+msgstr "محدثة"
+
+#: .\frontend\templates\frontend\index.html:126
+msgid "All dependencies are kept current to keep things fresh."
+msgstr "يتم الاحتفاظ بكل التبعيات محدثة لإبقاء الأمور جديدة."
+
+#: .\frontend\templates\frontend\index.html:135
+msgid "Ready to Publish"
+msgstr "جاهز للنشر"
+
+#: .\frontend\templates\frontend\index.html:137
+msgid "You can use this design as is, or you can make changes!"
+msgstr "يمكنك استخدام هذا التصميم كما هو، أو يمكنك إجراء تغييرات عليه!"
+
+#: .\frontend\templates\frontend\index.html:146
+msgid "Made with Love"
+msgstr "صُنعت بحب"
+
+#: .\frontend\templates\frontend\index.html:148
+msgid "Is it really open source if it's not made with love?"
+msgstr "هل هو حقًا مفتوح المصدر إذا لم يتم صنعه بالحب؟"
+
+#: .\frontend\templates\frontend\index.html:160
+#: .\frontend\templates\frontend\index.html:167
+#: .\frontend\templates\frontend\index.html:173
+#: .\frontend\templates\frontend\index.html:180
+#: .\frontend\templates\frontend\index.html:186
+#: .\frontend\templates\frontend\index.html:193
+#: .\frontend\templates\frontend\index.html:199
+#: .\frontend\templates\frontend\index.html:206
+#: .\frontend\templates\frontend\index.html:212
+#: .\frontend\templates\frontend\index.html:219
+#: .\frontend\templates\frontend\index.html:225
+#: .\frontend\templates\frontend\index.html:232
+msgid "Project Name"
+msgstr "اسم المشروع"
+
+#: .\frontend\templates\frontend\index.html:161
+#: .\frontend\templates\frontend\index.html:174
+#: .\frontend\templates\frontend\index.html:187
+#: .\frontend\templates\frontend\index.html:200
+#: .\frontend\templates\frontend\index.html:213
+#: .\frontend\templates\frontend\index.html:226
+msgid "Project Image"
+msgstr "صورة المشروع"
+
+#: .\frontend\templates\frontend\index.html:164
+#: .\frontend\templates\frontend\index.html:177
+#: .\frontend\templates\frontend\index.html:190
+#: .\frontend\templates\frontend\index.html:203
+#: .\frontend\templates\frontend\index.html:216
+#: .\frontend\templates\frontend\index.html:229
+msgid "Category"
+msgstr "فئة"
+
+#: .\frontend\templates\frontend\index.html:243
+msgid "Free Download at Start Bootstrap!"
+msgstr "تنزيل مجاني عند بدء تشغيل Bootstrap!"
+
+#: .\frontend\templates\frontend\index.html:244
+msgid "Download Now!"
+msgstr "تحميل الآن!"
+
+#: .\frontend\templates\frontend\index.html:252
+msgid "Let's Get In Touch!"
+msgstr "دعونا نتواصل!"
+
+#: .\frontend\templates\frontend\index.html:255
+msgid ""
+"Ready to start your next project with us? Fill out the form below and we "
+"will get back to you as soon as possible!"
+msgstr ""
+"هل أنت مستعد لبدء مشروعك القادم معنا؟ املأ النموذج أدناه وسنتواصل معك في "
+"أقرب وقت ممكن!"
+
+#: .\frontend\templates\frontend\index.html:263
+msgid "Enter your name"
+msgstr "أدخل اسمك"
+
+#: .\frontend\templates\frontend\index.html:264
+msgid "Full Name"
+msgstr "الاسم الكامل"
+
+#: .\frontend\templates\frontend\index.html:266
+msgid "A name is required."
+msgstr "الاسم مطلوب."
+
+#: .\frontend\templates\frontend\index.html:270
+msgid "Enter your email address"
+msgstr "أدخل عنوان بريدك الإلكتروني"
+
+#: .\frontend\templates\frontend\index.html:271
+msgid "Email Address"
+msgstr "عنوان البريد الإلكتروني"
+
+#: .\frontend\templates\frontend\index.html:273
+msgid "An email is required."
+msgstr "يجب أن يكون البريد الإلكتروني مطلوبًا."
+
+#: .\frontend\templates\frontend\index.html:276
+msgid "Email is not valid."
+msgstr "البريد الإلكتروني غير صالح."
+
+#: .\frontend\templates\frontend\index.html:280
+msgid "Enter your phone number"
+msgstr "أدخل رقم هاتفك"
+
+#: .\frontend\templates\frontend\index.html:283
+msgid "A phone number is required."
+msgstr "رقم الهاتف مطلوب."
+
+#: .\frontend\templates\frontend\index.html:287
+msgid "Enter your message"
+msgstr "أدخل رسالتك"
+
+#: .\frontend\templates\frontend\index.html:288
+msgid "Message"
+msgstr "رسالة"
+
+#: .\frontend\templates\frontend\index.html:290
+msgid "A message is required."
+msgstr "الرسالة مطلوبة."
+
+#: .\frontend\templates\frontend\index.html:296
+msgid "Form submission successful!"
+msgstr "تم إرسال النموذج بنجاح!"
+
+#: .\frontend\templates\frontend\index.html:302
+msgid "Error sending message!"
+msgstr "خطأ في إرسال الرسالة!"
+
+#: .\frontend\templates\frontend\index.html:305
+msgid "Send Message"
+msgstr "إرسال رسالة"
+
+#: .\frontend\templates\frontend\index.html:317
+msgid "Copyright &copy; Your Website 2023"
+msgstr "حقوق الطبع والنشر محفوظة لموقعك 2023"
+
+#: .\user_auth\templates\auth\log-in.html:5
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: .\user_auth\templates\auth\log-in.html:22
+msgid "Log In"
+msgstr "تسجيل الدخول"
+
+#: .\user_auth\templates\auth\log-in.html:32
+msgid "Email or Phone Number"
+msgstr "البريد الإلكتروني أو رقم الهاتف"
+
+#: .\user_auth\templates\auth\log-in.html:46
+msgid "LOG IN"
+msgstr "تسجيل الدخول"

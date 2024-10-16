@@ -1,0 +1,90 @@
+{% extends 'dashboard/index.html' %}
+{% load static i18n %}
+{% load menu_tags %}
+
+{% block extra_css %}
+  <style>
+    .profile-pic {
+      width: 42px;
+      height: 42px;
+      border-radius: 5px;
+    }
+  </style>
+{% endblock %}
+
+{% block subtitle %}
+  -{% trans 'Users' %}
+{% endblock %}
+
+{% block heading %}
+  <div class="d-flex align-items-center justify-content-between">
+    {% trans 'Users' %}
+    <a class="btn btn-blue" href="{% url 'dash:create_user' %}"><i class="fas fa-plus"></i></a>
+  </div>
+{% endblock %}
+
+{% block PageContent %}
+  <div class="bg-white p-2 m-2">
+    <div class="table-responsive">
+      <table id="usersTable" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>
+              {% trans 'Profile Picture' %}
+            </th>
+            <th>
+              {% trans 'First Name' %}
+            </th>
+            <th>
+              {% trans 'Last Name' %}
+            </th>
+            <th>
+              {% trans 'Account type' %}
+            </th>
+            <th>
+              {% trans 'Actions' %}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in users %}
+            <tr>
+              <td>
+                {% if user.profile_pic %}
+                  <img src="{{ user.profile_pic.url }}" class="profile-pic" alt="{{ user.first_name }}" />
+                {% else %}
+                  <img src="{% static 'img/user.png' %}" class="profile-pic" alt="{{ user.first_name }}" />
+                {% endif %}
+              </td>
+              <td>{{ user.first_name }}</td>
+              <td>{{ user.last_name }}</td>
+              <td>{{ user.get_account_type_display }}</td>
+              <td>
+                <a class="btn btn-success m-auto" href="{% url 'dash:user_edit' user.pk %}"><i class="fas fa-edit"></i></a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Initialize DataTable with Bootstrap 5 style -->
+
+  <script>
+    $(document).ready(function () {
+      $('#usersTable').DataTable({
+        language: {
+          url: '//cdn.datatables.net/plug-ins/2.1.8/i18n/ar.json'
+        },
+        paging: true,
+        lengthChange: true,
+        searching: true,
+        ordering: true,
+        info: true,
+        autoWidth: false,
+        responsive: true
+      })
+    })
+  </script>
+{% endblock %}

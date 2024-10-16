@@ -1,0 +1,4 @@
+/* Global Rules */
+*:not(i) {
+    font-family: "Cairo", sans-serif !important;
+}

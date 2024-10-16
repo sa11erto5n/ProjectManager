@@ -1,0 +1,185 @@
+{% extends 'frontend/index.html' %}
+{% load static i18n %}
+{% load menu_tags %}
+
+{% block subtitle %}
+  -{% trans 'Dashboard' %}
+{% endblock %}
+
+{% block css %}
+  {% comment %}Cairo Font{% endcomment %}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet" />
+  {% comment %}Core Style{% endcomment %}
+  <link rel="stylesheet" href="{% static 'dashboard/css/index.css' %}" />
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- DataTables CSS for Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" />
+
+  <!-- DataTables JS for Bootstrap 5 -->
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+{% endblock %}
+
+{% block nav %}
+
+{% endblock %}
+
+{% block content %}
+  <div id="dash-container">
+    {% block sidebar %}
+
+      <!-- Sidebar -->
+      <div class="d-flex flex-column bg-dark" id="sidebar">
+        {% if request.user.profile_pic %}
+          <img src="{{ user.profile_pic.url }}" alt="Profile Picture" id="user-image-preview" />
+        {% else %}
+          <img src="{% static 'img/user.png' %}" alt="Profile Picture" id="user-image-preview" />
+        {% endif %}
+        <h3>{% trans 'dashboard' %}</h3>
+        <nav class="primary_menu">
+          <li class="nav-item">
+            <a href="{% url 'dash:home' %}">
+              <i class="fas fa-home"></i>
+              {% trans 'Home Page' %}
+            </a>
+          </li>
+          <!-- Admin Menu -->
+
+          {% if request.user.is_staff %}
+            <div class="sidebar-heading">
+              {% trans 'administator' %}
+            </div>
+            <li class="nav-item">
+              <a href="{% url 'dash:users' %}">
+                <i class="fas fa-users"></i>
+                {% trans 'Participants' %}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'dash:view_user' request.user.id %}">
+                <i class="fas fa-user"></i>
+                {% trans 'My Account' %}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'dash:products_list' %}">
+                <i class="fas fa-tags"></i>
+                {% trans 'Products' %}
+              </a>
+            </li>
+
+            {% comment %}Contributer Menu{% endcomment %}
+          {% elif request.user.account_type == 'contributer' %}
+            <div class="sidebar-heading">
+              {% trans 'contributer' %}
+            </div>
+            <li class="nav-item">
+              <a href="{% url 'dash:view_user' request.user.id %}">
+                <i class="fas fa-user"></i>
+                {% trans 'My Account' %}
+              </a>
+            </li>
+          {% endif %}
+        </nav>
+        <nav class="secondary_menu">
+          <div class="sidebar-heading">
+            {% trans 'Other' %}
+          </div>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'user_auth:logout' %}">
+              <i class="fas fa-sign-out-alt"></i>
+              {% trans 'Logout' %}
+            </a>
+          </li>
+        </nav>
+      </div>
+    {% endblock %}
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+        {% block subnav %}
+          <!-- Topbar -->
+          <!-- End of Topbar -->
+        {% endblock %}
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800 m-2 text-blue flex-grow-1" style="font-weight: 600;">
+              {% block heading %}
+                Dashboard
+              {% endblock %}
+            </h1>
+            {% comment %} <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> {% endcomment %}
+          </div>
+          <div id="page_content" style="margin-bottom: 3rem;" >
+            {% block PageContent %}
+
+            {% endblock %}
+          </div>
+        </div>
+        <!-- /.container-fluid -->
+      </div>
+      <!-- End of Main Content -->
+
+      {% block PageFooter %}
+        <!-- Footer -->
+        <footer class="sticky-footer bg-light p-2" id="dash-footer">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>{% trans 'Copyright' %}&copy;{% trans 'Your Website 2024' %}</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+      {% endblock %}
+    </div>
+    <!-- End of Content Wrapper -->
+    <!-- End of Page Wrapper -->
+  </div>
+{% endblock %}
+
+{% block extra_js %}
+  <script>
+    // Function to highlight the active menu item
+    function highlightActiveMenuItem() {
+      // Get the current URL path
+      const currentUrl = window.location.pathname
+    
+      // Get all the nav items
+      const navItems = document.querySelectorAll('.nav-item')
+    
+      // Loop through each nav item
+      navItems.forEach((item) => {
+        // Get the anchor element within the nav item
+        const link = item.querySelector('.nav-link')
+        if (link) {
+          // Get the href of the link
+          const href = link.getAttribute('href')
+    
+          // Check if the current URL matches the link href
+          if (href === currentUrl) {
+            // Add the 'active' class or any other class for styling
+            item.classList.add('active')
+          }
+        }
+      })
+    }
+    
+    // Call the function on page load
+    window.onload = highlightActiveMenuItem
+  </script>
+  <!-- DataTables JS -->
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

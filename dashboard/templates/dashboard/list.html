@@ -1,0 +1,126 @@
+<!-- dashboard/templates/dashboard/yourmodel_list.html -->
+
+{% extends 'dashboard/index.html' %}
+{% load static i18n %}
+{% load menu_tags %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" /> <!-- DataTables CDN -->
+  <style>
+    .profile-pic {
+      width: 42px;
+      height: 42px;
+      border-radius: 5px;
+    }
+  </style>
+{% endblock %}
+
+{% block subtitle %}
+  - {{ title }}
+{% endblock %}
+
+{% block heading %}
+  <div class="d-flex align-items-center justify-content-between">
+    {{ title }}
+    <a class="btn btn-blue" href="{% url create_url %}"><i class="fas fa-plus"></i></a>
+  </div>
+{% endblock %}
+
+{% block PageContent %}
+  <div class="bg-white p-2 m-2">
+    <div class="table-responsive">
+      <table id="globalDataTable" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            {% for verbose_name, field_name in fields %}
+              <th>
+                {% trans verbose_name %}
+              </th> <!-- Translates verbose name -->
+            {% endfor %}
+            {% if delete_url %}
+              <th>
+                {% trans 'الإجراءات' %}
+              </th> <!-- Column for actions -->
+            {% endif %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in items %}
+            <tr>
+              {% for verbose_name, field_name in fields %}
+                <td>
+                  {% if field_name == 'product_image' %}
+                    <img src="{{ item.product_image.url }}" alt="Product Image" class="profile-pic" />
+                  {% else %}
+                    {{ item|get_attr:field_name }}
+                  {% endif %}
+                </td> <!-- Use custom filter to get attribute -->
+              {% endfor %}
+              {% if delete_url %}
+                <td>
+                  <button class="btn btn-danger delete-item" data-id="{{ item.pk }}" data-url="{% url delete_url item.pk %}"><i class="fas fa-trash"></i></button>
+                </td>
+              {% endif %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery CDN -->
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script> <!-- DataTables JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert2 CDN -->
+  <script>
+    $(document).ready(function () {
+      $('#globalDataTable').DataTable({
+        language: {
+          url: '//cdn.datatables.net/plug-ins/2.1.8/i18n/ar.json' // Arabic DataTable language support
+        },
+        paging: true,
+        lengthChange: true,
+        searching: true,
+        ordering: true,
+        info: true,
+        autoWidth: false,
+        responsive: true
+      })
+    
+      // Handle delete button click
+      $('.delete-item').on('click', function () {
+        const itemId = $(this).data('id')
+        const deleteUrl = $(this).data('url')
+    
+        Swal.fire({
+          title: 'هل أنت متأكد؟',
+          text: 'لا يمكن التراجع عن هذا الإجراء!',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#d33',
+          cancelButtonColor: '#3085d6',
+          confirmButtonText: 'نعم، احذف!',
+          cancelButtonText: 'إلغاء'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            fetch(deleteUrl, {
+              method: 'POST',
+              headers: {
+                'X-CSRFToken': '{{ csrf_token }}' // Ensure CSRF token is sent
+              }
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                if (data.status === 'success') {
+                  Swal.fire('محذوف!', 'تم حذف العنصر بنجاح.', 'success').then(() => {
+                    location.reload() // Reload the page to see the updated list
+                  })
+                } else {
+                  Swal.fire('خطأ!', 'لم يتم حذف العنصر. حاول مرة أخرى.', 'error')
+                }
+              })
+          }
+        })
+      })
+    })
+  </script>
+{% endblock %}

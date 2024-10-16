@@ -1,0 +1,11 @@
+# Folders
+.venv
+media
+# files
+data.json
+data.csv
+.env
+
+# Bulk Files
+*.pyc
+*.sqlite3

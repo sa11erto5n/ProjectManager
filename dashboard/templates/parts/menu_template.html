@@ -1,0 +1,153 @@
+{% load i18n %}
+{% load menu_tags %}
+
+{% for section in menu_items %}
+  {% if section.title %}
+    <!-- Heading -->
+    <div class="sidebar-heading">
+      {% trans section.title %}
+    </div>
+  {% endif %}
+
+  {% for item in section.items %}
+    {% if item.permission == 'superuser' and is_staff %}
+      <li class="nav-item">
+        {% if item.sub_items %}
+          <!-- Nav Item with Submenu -->
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#{{ item.collapse_id }}" aria-expanded="true" aria-controls="{{ item.collapse_id }}">
+            <i class="{{ item.icon }}"></i>
+            {% if item.title %}
+              <span>{% trans item.title %}</span>
+            {% endif %}
+          </a>
+          <div id="{{ item.collapse_id }}" class="collapse" aria-labelledby="heading{{ item.collapse_id }}" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              {% for sub_item in item.sub_items %}
+                <a class="collapse-item" href="{% url sub_item.url %}">{% trans sub_item.title %}</a>
+              {% endfor %}
+            </div>
+          </div>
+        {% else %}
+          <!-- Nav Item without Submenu -->
+          <a class="nav-link" href="{% url item.url %}">
+            <i class="{{ item.icon }}"></i>
+            {% if item.title %}
+              <span>{% trans item.title %}</span>
+            {% endif %}
+          </a>
+        {% endif %}
+      </li>
+    {% elif item.permission == 'seller' and type == 'seller' %}
+      <li class="nav-item">
+        {% if item.sub_items %}
+          <!-- Nav Item with Submenu -->
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#{{ item.collapse_id }}" aria-expanded="true" aria-controls="{{ item.collapse_id }}">
+            <i class="{{ item.icon }}"></i>
+            {% if item.title %}
+              <span>{% trans item.title %}</span>
+            {% endif %}
+          </a>
+          <div id="{{ item.collapse_id }}" class="collapse" aria-labelledby="heading{{ item.collapse_id }}" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              {% for sub_item in item.sub_items %}
+                <a class="collapse-item" href="{% url sub_item.url %}">{% trans sub_item.title %}</a>
+              {% endfor %}
+            </div>
+          </div>
+        {% else %}
+          <!-- Nav Item without Submenu -->
+          <a class="nav-link" href="{% url item.url %}">
+            <i class="{{ item.icon }}"></i>
+            {% if item.title %}
+              <span>{% trans item.title %}</span>
+            {% endif %}
+          </a>
+        {% endif %}
+      </li>
+    {% elif item.permission == 'contributer' and type == 'contributer' %}
+      <li class="nav-item">
+        {% if item.sub_items %}
+          <!-- Nav Item with Submenu -->
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#{{ item.collapse_id }}" aria-expanded="true" aria-controls="{{ item.collapse_id }}">
+            <i class="{{ item.icon }}"></i>
+            {% if item.title %}
+              <span>{% trans item.title %}</span>
+            {% endif %}
+          </a>
+          <div id="{{ item.collapse_id }}" class="collapse" aria-labelledby="heading{{ item.collapse_id }}" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              {% for sub_item in item.sub_items %}
+                <a class="collapse-item" href="{% url sub_item.url %}">{% trans sub_item.title %}</a>
+              {% endfor %}
+            </div>
+          </div>
+        {% else %}
+          <!-- Nav Item without Submenu -->
+          <a class="nav-link" href="{% url item.url %}">
+            <i class="{{ item.icon }}"></i>
+            {% if item.title %}
+              <span>{% trans item.title %}</span>
+            {% endif %}
+          </a>
+        {% endif %}
+      </li>
+    {% elif item.permission == 'all' %}
+      <li class="nav-item">
+        {% if item.sub_items %}
+          <!-- Nav Item with Submenu -->
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#{{ item.collapse_id }}" aria-expanded="true" aria-controls="{{ item.collapse_id }}">
+            <i class="{{ item.icon }}"></i>
+            {% if item.title %}
+              <span>{% trans item.title %}</span>
+            {% endif %}
+          </a>
+          <div id="{{ item.collapse_id }}" class="collapse" aria-labelledby="heading{{ item.collapse_id }}" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              {% for sub_item in item.sub_items %}
+                <a class="collapse-item" href="{% url sub_item.url %}">{% trans sub_item.title %}</a>
+              {% endfor %}
+            </div>
+          </div>
+        {% else %}
+          <!-- Nav Item without Submenu -->
+          <a class="nav-link" href="{% url item.url %}">
+            <i class="{{ item.icon }}"></i>
+            {% if item.title %}
+              <span>{% trans item.title %}</span>
+            {% endif %}
+          </a>
+        {% endif %}
+      </li>
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+<script>
+  // Function to highlight the active menu item
+  function highlightActiveMenuItem() {
+    // Get the current URL path
+    const currentUrl = window.location.pathname;
+  
+    // Get all the nav items
+    const navItems = document.querySelectorAll('.nav-item');
+  
+    // Loop through each nav item
+    navItems.forEach((item) => {
+      // Get the anchor element within the nav item
+      const link = item.querySelector('.nav-link');
+      if (link) {
+        // Get the href of the link
+        const href = link.getAttribute('href');
+  
+        // Check if the current URL matches the link href
+        if (href && currentUrl.includes(href)) {
+          // Add the 'active' class or any other class for styling
+          item.classList.add('active');
+        }
+      }
+    });
+  }
+  
+  // Call the function on page load
+  window.onload = highlightActiveMenuItem;
+</script>

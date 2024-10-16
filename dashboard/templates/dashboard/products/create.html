@@ -1,0 +1,68 @@
+{% extends 'dashboard/index.html' %}
+{% load static i18n %}
+
+{% block extra_css %}
+  <style>
+    /* Your existing CSS styles */
+  </style>
+{% endblock %}
+
+{% block subtitle %}
+  -{% trans 'Products' %}
+{% endblock %}
+
+{% block heading %}
+  {% trans 'Create Product' %}
+{% endblock %}
+
+{% block PageContent %}
+  <div class="bg-white p-4 m-2 rounded">
+    <form method="POST" class="d-flex flex-column" id="ProductForm" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }} <!-- Ensure your form fields are rendered with Bootstrap classes -->
+      <button type="submit" class="btn btn-blue d-block me-auto">{% trans 'Create Product' %}</button>
+      <div id="error-messages" class="text-danger"></div> <!-- Div to display errors -->
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('ProductForm')
+    
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault() // Prevent default form submission
+      const formData = new FormData(form)
+    
+      try {
+        const response = await fetch("{% url 'dash:create_product' %}", {
+          method: 'POST',
+          body: formData
+        })
+    
+        if (!response.ok) {
+          // If the response is not OK, handle the error
+          const errorText = await response.text() // Get response text for error handling
+          console.error('Server responded with an error:', errorText)
+          document.getElementById('error-messages').innerText = 'An error occurred while processing your request.'
+          return
+        }
+    
+        const data = await response.json() // Parse JSON response
+        const errorMessagesDiv = document.getElementById('error-messages')
+        errorMessagesDiv.innerHTML = '' // Clear previous error messages
+    
+        if (data.status === 'error') {
+          // Handle and display form validation errors
+          for (const field in data.errors) {
+            errorMessagesDiv.innerHTML += `<p>${field}: ${data.errors[field].join(', ')}</p>`
+          }
+        } else if (data.status === 'success') {
+          // Redirect to the product list page on success
+          window.location.href = "{% url 'dash:products_list' %}" // Change this URL as needed
+        }
+      } catch (error) {
+        console.error('Fetch error:', error)
+        document.getElementById('error-messages').innerText = 'An error occurred while submitting the form.'
+      }
+    })
+  </script>
+{% endblock %}

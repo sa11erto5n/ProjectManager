@@ -1,0 +1,155 @@
+{% extends 'dashboard/index.html' %}
+{% load static i18n %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'dashboard/css/profile.css' %}" />
+  <style>
+    #image-upload {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      max-height: fit-content;
+    }
+    
+    #upload-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.9);
+      width: 48px;
+      height: 48px;
+      padding: 8px;
+      z-index: 1;
+    }
+    
+    #image-upload:hover #upload-icon {
+      display: block;
+    }
+    
+    #user-image {
+      width: 140px;
+      border-radius: 5px;
+    }
+  </style>
+{% endblock %}
+
+{% block subtitle %}
+  -{% trans 'Edit Profile' %}
+{% endblock %}
+
+{% block heading %}
+  {% trans 'Edit Profile' %}
+{% endblock %}
+
+{% block PageContent %}
+  <div class="bg-white p-4 m-2 rounded">
+    <form method="POST" class="d-flex" id="profileForm" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div id="image-upload">
+        {% if user.profile_pic %}
+          <img src="{{ user.profile_pic.url }}" alt="{{ user.name }}" id="user-image-edit" />
+        {% else %}
+          <img src="{% static 'img/user.png' %}" alt="{{ user.name }}" id="user-image-edit" />
+        {% endif %}
+        <div id="upload-icon" class="text-center">
+          <label for="file">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M12 3a1 1 0 0 1 .78.375l4 5a1 1 0 1 1-1.56 1.25L13 6.85V14a1 1 0 1 1-2 0V6.85L8.78 9.626a1 1 0 1 1-1.56-1.25l4-5A1 1 0 0 1 12 3ZM9 14v-1H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-4v1a3 3 0 1 1-6 0Zm8 2a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2H17Z" clip-rule="evenodd" />
+            </svg>
+          </label>
+          <input id="file" name="profile_pic" type="file" style="display: none;" />
+        </div>
+        <small class="text-danger" id="error-profile_pic"></small>
+      </div>
+
+      <div class="d-flex flex-column flex-grow-1" style="margin-left: 1rem;">
+        <div class="d-flex">
+          <div class="m-3 me-0 flex-grow-1">
+            <label for="first_name" class="form-label">{% trans 'First Name' %}</label>
+            <input type="text" class="form-control" id="first_name" name="first_name" value="{{ user.first_name }}" required />
+            <small class="text-danger" id="error-first_name"></small>
+          </div>
+          <div class="m-3 me-0 flex-grow-1">
+            <label for="last_name" class="form-label">{% trans 'Last Name' %}</label>
+            <input type="text" class="form-control" id="last_name" name="last_name" value="{{ user.last_name }}" required />
+            <small class="text-danger" id="error-last_name"></small>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="col m-2 me-0 flex-grow-1">
+            <label for="p_number" class="form-label">{% trans 'Phone Number' %}</label>
+            <input type="text" class="form-control" id="p_number" name="p_number" value={{user.phone_number}} required />
+          </div>
+          <div class="col m-2 me-0 flex-grow-1">
+            <label for="acc_type" class="form-label">{% trans 'Account Type' %}</label>
+            <select class="form-select" id="acc_type" name="acc_type" required>
+              <option value="seller">
+                {% trans 'Seller' %}
+              </option>
+              <option value="contributer">
+                {% trans 'Contributor' %}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="col m-auto" style="width: 350px;">
+          <label for="user_password" class="form-label">{% trans 'new Password' %}</label>
+          <input type="password" class="form-control" id="user_password" name="user_password"  />
+        </div>
+
+        {% comment %} <div class="mb-3">
+          <label for="email" class="form-label">{% trans 'Email address' %}</label>
+          <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}" />
+          <small class="text-danger" id="error-email"></small>
+        </div> {% endcomment %}
+        <button type="submit" class="btn btn-blue">{% trans 'Save Changes' %}</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('profileForm')
+    const fileInput = document.getElementById('file')
+    const userImage = document.getElementById('user-image-edit')
+    
+    // Event listener to handle file selection
+    fileInput.addEventListener('change', function (e) {
+      const file = e.target.files[0]
+      if (file) {
+        const reader = new FileReader()
+        reader.onload = function (event) {
+          userImage.src = event.target.result // Set the image source to the selected file
+        }
+        reader.readAsDataURL(file) // Convert the file to base64 string
+      }
+    })
+    
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault()
+      const formData = new FormData(form)
+      console.log(formData)
+      const response = await fetch("{% url 'dash:user_edit' user.pk %}", {
+        method: 'POST',
+        body: formData
+      })
+    
+      const data = await response.json()
+      if (data.status === 'error') {
+        // Handle and display errors
+        const errors = data.errors
+        document.getElementById('error-first_name').textContent = errors.first_name || ''
+        document.getElementById('error-last_name').textContent = errors.last_name || ''
+        document.getElementById('error-email').textContent = errors.email || ''
+        document.getElementById('error-birthdate').textContent = errors.birthdate || ''
+        document.getElementById('error-profile_pic').textContent = errors.profile_pic || ''
+        document.getElementById('error-p_number').textContent = errors.p_number || ''
+      } else if (data.status === 'success') {
+        // Redirect to the profile page
+        window.location.href = "{% url 'dash:users' %}"
+      }
+    })
+  </script>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% load static %}
+
+<div class="image-upload" id="image-upload">
+    {% if image_preview %}
+        <img src="{{ image_preview }}" alt="Product Image" id="user-image-edit" class="img-thumbnail" />
+    {% else %}
+        <img src="{% static 'img/placeholder.png' %}" alt="Product Image" id="user-image-edit" class="img-thumbnail" />
+    {% endif %}
+    <div id="upload-icon" class="text-center">
+        <label for="{{ widget.attrs.id }}">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M12 3a1 1 0 0 1 .78.375l4 5a1 1 0 1 1-1.56 1.25L13 6.85V14a1 1 0 1 1-2 0V6.85L8.78 9.626a1 1 0 1 1-1.56-1.25l4-5A1 1 0 0 1 12 3ZM9 14v-1H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-4v1a3 3 0 1 1-6 0Zm8 2a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2H17Z" clip-rule="evenodd" />
+            </svg>
+        </label>
+        <input id="{{ widget.attrs.id }}" name="{{ widget.name }}" type="file" style="display: none;" accept="image/*" />
+    </div>
+    <small class="text-danger" id="error-profile_pic"></small>
+
+    <style>
+        #image-upload {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            max-height: fit-content;
+            width: 240px;
+            height: 240px;
+        }
+        #image-upload img 
+        {
+            width: 100%;
+            height: 100%;
+        }
+        #upload-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 48px;
+            height: 48px;
+            padding: 8px;
+            z-index: 1;
+        }
+
+        #image-upload:hover #upload-icon {
+            display: block;
+        }
+
+        #user-image-edit {
+            width: 140px;
+            border-radius: 5px;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fileInput = document.getElementById('{{ widget.attrs.id }}');
+            const userImage = document.getElementById('user-image-edit');
+
+            // Event listener to handle file selection
+            fileInput.addEventListener('change', function (e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (event) {
+                        userImage.src = event.target.result; // Set the image source to the selected file
+                    };
+                    reader.readAsDataURL(file); // Convert the file to base64 string
+                }
+            });
+        });
+    </script>
+</div>

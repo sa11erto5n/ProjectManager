@@ -1,0 +1,74 @@
+*:focus {
+    box-shadow: none !important;
+    outline: none !important;
+    border-color: #007bff !important;
+}
+
+/* Classes */
+/* Blue Button Styles */
+.btn-blue {
+    color: #fff;
+    /* Text color */
+    background-color: #007bff;
+    /* Background color */
+    border-color: #007bff;
+    /* Border color */
+    padding: 0.375rem 0.75rem;
+    /* Padding */
+    font-size: 1rem;
+    /* Font size */
+    line-height: 1.5;
+    /* Line height */
+    border: 1px solid transparent;
+    /* Border */
+    border-radius: 0.25rem;
+    /* Border radius */
+    display: inline-block;
+    /* Display */
+    text-align: center;
+    /* Text alignment */
+    text-decoration: none;
+    /* Text decoration */
+    transition: all 0.15s ease-in-out;
+    /* Transition */
+}
+
+/* Hover State */
+.btn-blue:hover {
+    color: #fff;
+    /* Text color on hover */
+    background-color: #0056b3;
+    /* Background color on hover */
+    border-color: #004085;
+    /* Border color on hover */
+}
+
+/* Focus State */
+.btn-blue:focus,
+.btn-blue.focus {
+    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5);
+    /* Focus shadow */
+}
+
+/* Background Blue Styles */
+.bg-blue {
+    background-color: #007bff !important;
+    /* Background color */
+}
+
+/* Hover State */
+.bg-blue:hover {
+    background-color: #0056b3 !important;
+    /* Background color on hover */
+}
+
+/* Focus State */
+.bg-blue:focus,
+.bg-blue.focus {
+    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5) !important;
+    /* Focus shadow */
+}
+
+.text-blue {
+    color: #007bff;
+}
