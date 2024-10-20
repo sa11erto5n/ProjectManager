@@ -36,6 +36,7 @@ class User(AbstractUser):
     profile_pic = models.ImageField(upload_to='profile_pics/', max_length=1200, blank=True, null=True)
     # birthdate = models.DateField(null=True, blank=True)
     ACCOUNT_TYPE_CHOICES = [
+        ('admin', _('administator')),
         ('seller', _('Seller')),
         ('contributor', _('Contributor')),
     ]
@@ -49,6 +50,17 @@ class User(AbstractUser):
     REQUIRED_FIELDS = ['email']  # Optional email field
 
     objects = UserManager()
+
+    def save(self, *args, **kwargs):
+        # If the account type is 'admin', make the user a superuser and staff
+        if self.account_type == 'admin':
+            self.is_staff = True
+            self.is_superuser = True
+        else:
+            self.is_staff = False
+            self.is_superuser = False
+
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f' {self.first_name} {self.last_name} '

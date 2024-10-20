@@ -13,6 +13,7 @@ class ProductsList(gv.BaseListView,LoginRequiredMixin,UserPassesTestMixin):
     fields = [
         (_('Product Image'), 'product_image'),
         (_('Product Name'), 'product_name'),
+        (_('Price'), 'product_price'),
         (_('Product Quantity'), 'product_quantity'),
         (_('Creation Date'), 'date_added'),
         

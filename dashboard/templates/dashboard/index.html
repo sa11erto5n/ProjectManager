@@ -38,7 +38,7 @@
         {% else %}
           <img src="{% static 'img/user.png' %}" alt="Profile Picture" id="user-image-preview" />
         {% endif %}
-        <h3>{% trans 'dashboard' %}</h3>
+        <h3>{% trans 'Controle Panel' %}</h3>
         <nav class="primary_menu">
           <li class="nav-item">
             <a href="{% url 'dash:home' %}">
@@ -72,13 +72,13 @@
             </li>
             <li class="nav-item">
               <a href="{% url 'dash:report_list' %}">
-                <i class="fas fa-circle-dollar-to-slot"></i>
+                <i class="fas fa-flag"></i>
                 {% trans 'Reports' %}
               </a>
             </li>
             <li class="nav-item">
               <a href="{% url 'dash:earnings_list' %}">
-                <i class="fas fa-user"></i>
+                <i class="fas fa-dollar-sign"></i>
                 {% trans 'Earnings' %}
               </a>
             </li>
@@ -153,7 +153,7 @@
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800 m-2 text-blue flex-grow-1" style="font-weight: 600;">
               {% block heading %}
-                Dashboard
+                {% trans 'Controle Panel' %}
               {% endblock %}
             </h1>
             {% comment %} <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> {% endcomment %}
@@ -170,13 +170,13 @@
 
       {% block PageFooter %}
         <!-- Footer -->
-        <footer class="sticky-footer bg-light p-2" id="dash-footer">
+        {% comment %} <footer class="sticky-footer bg-light p-2" id="dash-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
               <span>{% trans 'Copyright' %}&copy;{% trans 'Your Website 2024' %}</span>
             </div>
           </div>
-        </footer>
+        </footer> {% endcomment %}
         <!-- End of Footer -->
       {% endblock %}
     </div>

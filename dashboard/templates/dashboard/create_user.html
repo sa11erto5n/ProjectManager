@@ -40,6 +40,9 @@
             <div class="col m-2 me-0 flex-grow-1">
               <label for="acc_type" class="form-label">{% trans 'Account Type' %}</label>
               <select class="form-select" id="acc_type" name="acc_type" required>
+                <option value="admin">
+                  {% trans 'administator' %}
+                </option>
                 <option value="seller">
                   {% trans 'Seller' %}
                 </option>

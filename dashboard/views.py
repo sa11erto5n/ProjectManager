@@ -10,14 +10,21 @@ from django.contrib.auth.hashers import make_password
 from django.utils.translation import gettext as _
 from . import tests
 from django.core.exceptions import PermissionDenied
-
+from . import models
 
 User = get_user_model()
 
 @login_required
 def home_view(request):
-    print(request.user.is_staff)
-    return render(request,'dashboard/index.html')
+    context = {
+        'users_count' : User.objects.count(),
+        'products_count' : models.Product.objects.count(),
+        'contributions' : models.Contribution.objects.count(),
+        'products' : models.Product.objects.all().order_by('-date_added')[:5],
+        
+        
+    }
+    return render(request,'dashboard/home.html',context=context)
 
 
 

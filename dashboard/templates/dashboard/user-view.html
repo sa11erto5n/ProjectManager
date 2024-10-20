@@ -39,14 +39,14 @@
 
           {% if user.account_type %}
             <span class="col"><strong>{% trans 'Account type' %}</strong> : {{ user.get_account_type_display }}</span>
-          {% else %}
-            <span class="col"><strong>{% trans 'Account type' %}</strong> :{% trans 'Administrator' %}</span>
+          {% comment %} {% else %} {% endcomment %}
+            {% comment %} <span class="col"><strong>{% trans 'Account type' %}</strong> :{% trans 'administator' %}</span> {% endcomment %}
           {% endif %}
         </div>
         <div class="row justify-content-between flex-fill mb-2">
           <span class="col"><strong>{% trans 'Phone Number' %}</strong> : {{ user.phone_number }}</span>
           <span class="col"><strong>{% trans 'Last Login' %}</strong> : {{ user.last_login }}</span>
-          <span class="col"><strong></strong> :</span>
+          <span class="col"><strong></strong> </span>
         </div>
       </div>
 
