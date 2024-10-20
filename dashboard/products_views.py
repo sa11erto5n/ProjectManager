@@ -4,12 +4,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Product
 from . import GenericViews as gv
 from . import forms
-# def ProductsList(request):
-#     context = {
-#         'products' : Product.objects.all() 
-#     }
-#     return render(request,'dashboard/products/list.html')
-
 
 class ProductsList(gv.BaseListView,LoginRequiredMixin,UserPassesTestMixin):
     model = Product

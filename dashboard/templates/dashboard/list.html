@@ -22,7 +22,10 @@
 {% block heading %}
   <div class="d-flex align-items-center justify-content-between">
     {{ title }}
-    <a class="btn btn-blue" href="{% url create_url %}"><i class="fas fa-plus"></i></a>
+
+    {% if create_url %}
+      <a class="btn btn-blue" href="{% url create_url %}"><i class="fas fa-plus"></i></a>
+    {% endif %}
   </div>
 {% endblock %}
 
@@ -37,7 +40,7 @@
                 {% trans verbose_name %}
               </th> <!-- Translates verbose name -->
             {% endfor %}
-            {% if delete_url %}
+            {% if delete_url and request.user.is_staff %}
               <th>
                 {% trans 'الإجراءات' %}
               </th> <!-- Column for actions -->
@@ -56,7 +59,7 @@
                   {% endif %}
                 </td> <!-- Use custom filter to get attribute -->
               {% endfor %}
-              {% if delete_url %}
+              {% if delete_url and request.user.is_staff %}
                 <td>
                   <button class="btn btn-danger delete-item" data-id="{{ item.pk }}" data-url="{% url delete_url item.pk %}"><i class="fas fa-trash"></i></button>
                 </td>

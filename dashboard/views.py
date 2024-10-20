@@ -9,6 +9,9 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import make_password
 from django.utils.translation import gettext as _
 from . import tests
+from django.core.exceptions import PermissionDenied
+
+
 User = get_user_model()
 
 @login_required
@@ -154,9 +157,19 @@ def user_edit(request,id):
 
 
 @login_required
-def user_view(request,id):
-    user = get_user_model().objects.get(pk=id)
+@user_passes_test(tests.is_contributor_or_staff)
+def user_view(request, id=None):
+    if id is None:  # No ID is passed, show the logged-in user's profile
+        user = request.user
+    else:
+        # Check if the user is staff or the ID matches the logged-in user
+        if request.user.is_staff or request.user.pk == id:
+            user = get_user_model().objects.get(pk=id)
+        else:
+            # Optionally, you can handle this with a redirect or permission error
+            raise PermissionDenied
+
     context = {
         'user': user
     }
-    return render(request,'dashboard/user-view.html',context=context)
+    return render(request, 'dashboard/user-view.html', context=context)

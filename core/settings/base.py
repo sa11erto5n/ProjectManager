@@ -12,8 +12,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # Site Setting
 LOGIN_URL  = 'user_auth:login'
-LOGIN_REDIRECT_URL  = 'dasboard:home'
-LOGOUT_REDIRECT_URL  = 'dash:login'
+LOGIN_REDIRECT_URL  = 'dash:home'
+LOGOUT_REDIRECT_URL  = 'user_auth:login'
 AUTH_USER_MODEL = "user_auth.User"
 
 ALLOWED_HOSTS = [

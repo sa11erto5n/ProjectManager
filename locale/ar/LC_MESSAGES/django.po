@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-16 12:14+0100\n"
+"POT-Creation-Date: 2024-10-19 17:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,54 +26,169 @@ msgstr "إنجليزي"
 msgid "Arabic"
 msgstr "عربي"
 
+#: .\dashboard\contributions_views.py:19 .\dashboard\contributions_views.py:38
+#: .\dashboard\templates\dashboard\index.html:72
+#: .\dashboard\templates\dashboard\index.html:103
+msgid "Contributions"
+msgstr "المساهمات"
+
+#: .\dashboard\contributions_views.py:35 .\dashboard\forms.py:77
+#: .\dashboard\models.py:20 .\dashboard\reports_views.py:32
+msgid "User"
+msgstr "مستخدم"
+
+#: .\dashboard\contributions_views.py:36 .\dashboard\models.py:22
+msgid "Contribution Price"
+msgstr "سعر المساهمة"
+
+#: .\dashboard\contributions_views.py:69
+msgid "Contribution deleted successfully."
+msgstr "تم حذف المساهمة بنجاح."
+
+#: .\dashboard\earning_views.py:20 .\dashboard\models.py:51
+msgid "User Earnings"
+msgstr "أرباح المستخدم"
+
+#: .\dashboard\earning_views.py:21 .\dashboard\earning_views.py:25
+#: .\dashboard\forms.py:78 .\dashboard\models.py:52
+msgid "Earned Price"
+msgstr "السعر المكتسب"
+
+#: .\dashboard\earning_views.py:22 .\dashboard\forms.py:79
+#: .\dashboard\models.py:21 .\dashboard\models.py:27 .\dashboard\models.py:53
+#: .\dashboard\reports_views.py:33
+msgid "Product"
+msgstr "منتج"
+
+#: .\dashboard\earning_views.py:23 .\dashboard\models.py:54
+msgid "Date Added"
+msgstr "تاريخ الإضافة"
+
+#: .\dashboard\earning_views.py:26
+msgid "Earnings List"
+msgstr "قائمة الأرباح"
+
+#: .\dashboard\earning_views.py:46 .\dashboard\reports_views.py:20
+#: .\dashboard\reports_views.py:41
+#: .\dashboard\templates\dashboard\report_create.html:5
+msgid "Report"
+msgstr "تقرير"
+
+#: .\dashboard\forms.py:83
+msgid "Enter earned price"
+msgstr "أدخل السعر المكتسب"
+
 #: .\dashboard\menus.py:5
 msgid "Main Menu"
 msgstr "القائمة الرئيسية"
 
-#: .\dashboard\menus.py:9 .\dashboard\templates\dashboard\index.html:49
+#: .\dashboard\menus.py:9 .\dashboard\templates\dashboard\index.html:48
 msgid "Home Page"
 msgstr "الصفحة الرئيسية"
 
-#: .\dashboard\menus.py:16 .\dashboard\templates\dashboard\index.html:61
+#: .\dashboard\menus.py:16
 msgid "Participants"
 msgstr "مشاركون"
 
-#: .\dashboard\menus.py:23 .\dashboard\templates\dashboard\index.html:73
+#: .\dashboard\menus.py:23 .\dashboard\templates\dashboard\index.html:66
+#: .\dashboard\templates\dashboard\index.html:121
 #: .\dashboard\templates\dashboard\products\create.html:11
 msgid "Products"
 msgstr "منتجات"
 
-#: .\dashboard\menus.py:33 .\dashboard\templates\dashboard\index.html:93
+#: .\dashboard\menus.py:33 .\dashboard\templates\dashboard\index.html:134
 msgid "Other"
 msgstr "آخر"
 
-#: .\dashboard\menus.py:36 .\dashboard\templates\dashboard\index.html:67
-#: .\dashboard\templates\dashboard\index.html:86
+#: .\dashboard\menus.py:36 .\dashboard\templates\dashboard\index.html:91
+#: .\dashboard\templates\dashboard\index.html:110
 msgid "My Account"
 msgstr "حسابي"
 
-#: .\dashboard\models.py:9 .\dashboard\products_views.py:20
-#: .\dashboard\products_views.py:26
+#: .\dashboard\models.py:9 .\dashboard\products_views.py:15
+#: .\dashboard\products_views.py:21
 msgid "Product Name"
 msgstr "اسم المنتج"
 
-#: .\dashboard\models.py:10 .\dashboard\products_views.py:21
+#: .\dashboard\models.py:10 .\dashboard\products_views.py:16
 msgid "Product Quantity"
 msgstr "كمية المنتج"
 
-#: .\dashboard\products_views.py:19
+#: .\dashboard\models.py:11
+msgid "Remaining Quantity"
+msgstr "الكمية المتبقية"
+
+#: .\dashboard\models.py:12 .\dashboard\models.py:29
+#: .\dashboard\reports_views.py:35
+msgid "Price"
+msgstr "سعر"
+
+#: .\dashboard\models.py:13 .\dashboard\products_views.py:14
 msgid "Product Image"
 msgstr "صورة المنتج"
 
-#: .\dashboard\products_views.py:22
+#: .\dashboard\models.py:26
+msgid "User Reports"
+msgstr "تقارير المستخدم"
+
+#: .\dashboard\models.py:28
+msgid "Sold Quantity"
+msgstr "الكمية المباعة"
+
+#: .\dashboard\models.py:30
+msgid "Date Sold"
+msgstr "تاريخ البيع"
+
+#: .\dashboard\models.py:31
+msgid "Returned Products?"
+msgstr "المنتجات المرتجعة؟"
+
+#: .\dashboard\models.py:32
+msgid "Canceled Order?"
+msgstr "تم إلغاء الطلب؟"
+
+#: .\dashboard\models.py:38
+msgid "The remaining quantity of the product is less than the quantity sold."
+msgstr "الكمية المتبقية من المنتج أقل من الكمية المباعة."
+
+#: .\dashboard\models.py:47
+msgid "Cant create A report"
+msgstr "لا يمكن إنشاء تقرير"
+
+#: .\dashboard\products_views.py:17
 msgid "Creation Date"
 msgstr "تاريخ الإنشاء"
 
-#: .\dashboard\products_views.py:27
+#: .\dashboard\products_views.py:22
 msgid "Products List"
 msgstr "قائمة المنتجات"
 
+#: .\dashboard\reports_views.py:34
+msgid "Quantity"
+msgstr "كمية"
+
+#: .\dashboard\reports_views.py:36
+msgid "Returned"
+msgstr "عاد"
+
+#: .\dashboard\reports_views.py:37
+msgid "Canceled"
+msgstr "تم الإلغاء"
+
+#: .\dashboard\reports_views.py:38
+msgid "Creation Data"
+msgstr "بيانات الإنشاء"
+
+#: .\dashboard\reports_views.py:68
+msgid "Report deleted successfully."
+msgstr "تم حذف التقرير بنجاح."
+
+#: .\dashboard\templates\dashboard\create.html:23
+msgid "Create"
+msgstr "يخلق"
+
 #: .\dashboard\templates\dashboard\create_user.html:10
+#: .\dashboard\templates\dashboard\index.html:60
 #: .\dashboard\templates\dashboard\users.html:16
 #: .\dashboard\templates\dashboard\users.html:21
 msgid "Users"
@@ -132,34 +247,59 @@ msgstr "إضافة مستخدم"
 msgid "Dashboard"
 msgstr "لوحة القيادة"
 
-#: .\dashboard\templates\dashboard\index.html:44
+#: .\dashboard\templates\dashboard\index.html:43
 msgid "dashboard"
 msgstr "لوحة القيادة"
 
-#: .\dashboard\templates\dashboard\index.html:56
+#: .\dashboard\templates\dashboard\index.html:55
 msgid "administator"
 msgstr "مدير"
 
-#: .\dashboard\templates\dashboard\index.html:81
+#: .\dashboard\templates\dashboard\index.html:78
+#: .\dashboard\templates\dashboard\index.html:127
+msgid "Reports"
+msgstr "التقارير"
+
+#: .\dashboard\templates\dashboard\index.html:84
+msgid "Earnings"
+msgstr "الأرباح"
+
+#: .\dashboard\templates\dashboard\index.html:98
 msgid "contributer"
 msgstr "مساهم"
 
-#: .\dashboard\templates\dashboard\index.html:99
+#: .\dashboard\templates\dashboard\index.html:116
+msgid "seller"
+msgstr "بائع"
+
+#: .\dashboard\templates\dashboard\index.html:140
 msgid "Logout"
 msgstr "تسجيل الخروج"
 
-#: .\dashboard\templates\dashboard\index.html:142
+#: .\dashboard\templates\dashboard\index.html:183
 msgid "Copyright"
 msgstr "حقوق الطبع والنشر"
 
-#: .\dashboard\templates\dashboard\index.html:142
+#: .\dashboard\templates\dashboard\index.html:183
 msgid "Your Website 2024"
 msgstr "موقعك 2024"
+
+#: .\dashboard\templates\dashboard\list.html:45
+msgid "الإجراءات"
+msgstr "الإجراءات"
 
 #: .\dashboard\templates\dashboard\products\create.html:15
 #: .\dashboard\templates\dashboard\products\create.html:23
 msgid "Create Product"
 msgstr "إنشاء المنتج"
+
+#: .\dashboard\templates\dashboard\report_create.html:16
+msgid "user"
+msgstr "مستخدم"
+
+#: .\dashboard\templates\dashboard\report_create.html:36
+msgid "Submit"
+msgstr "يُقدِّم"
 
 #: .\dashboard\templates\dashboard\user-edit.html:40
 #: .\dashboard\templates\dashboard\user-edit.html:44
@@ -205,23 +345,23 @@ msgstr "صورة الملف الشخصي"
 msgid "Actions"
 msgstr "الإجراءات"
 
-#: .\dashboard\views.py:44
+#: .\dashboard\views.py:47
 msgid "First Name is required."
 msgstr "الاسم الأول مطلوب."
 
-#: .\dashboard\views.py:46
+#: .\dashboard\views.py:49
 msgid "Last Name is required."
 msgstr "الاسم الأخير مطلوب."
 
-#: .\dashboard\views.py:48
+#: .\dashboard\views.py:51
 msgid "Phone number must be 10 digits long."
 msgstr "يجب أن يكون رقم الهاتف مكونًا من 10 أرقام."
 
-#: .\dashboard\views.py:50
+#: .\dashboard\views.py:53
 msgid "Invalid account type selected."
 msgstr "تم اختيار نوع حساب غير صالح."
 
-#: .\dashboard\views.py:52
+#: .\dashboard\views.py:55
 msgid "Password must be at least 4 characters long."
 msgstr "يجب أن تتكون كلمة المرور من 4 أحرف على الأقل."
 

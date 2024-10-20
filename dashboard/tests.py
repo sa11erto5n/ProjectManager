@@ -10,3 +10,9 @@ def is_contributor(user):
 
 def is_staff(user):
     return user.is_staff
+
+def is_contributor_or_staff(user):
+    return user.account_type == 'contributer' or user.is_staff
+
+def is_seller_or_staff(user):
+    return user.account_type == 'seller' or user.is_staff

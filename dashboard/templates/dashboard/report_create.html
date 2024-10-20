@@ -1,0 +1,38 @@
+{% extends 'dashboard/index.html' %}
+{% load i18n %} {# Load the translation library #}
+
+{% block PageContent %}
+  <h2>{% trans 'Report' %}</h2> {# Translate the title #}
+  <form method="POST" class="d-flex flex-column" id="reportForm" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    {% if request.user.is_superuser %}
+      <div class="mb-3">{{ form.user.label }}</div>
+      {{ form.user }}
+      {{ form.user.errors }}
+    {% else %}
+      <div class="mb-3">
+        <label>{% trans 'user' %}</label> {# Translate the label for the disabled input #}
+        <input type="text" class="form-control" value="{{ request.user.first_name }} {{ request.user.last_name }}" disabled />
+      </div>
+    {% endif %}
+
+    <div class="mb-3">{{ form.product.label }}</div>
+    {{ form.product }}
+    {{ form.product.errors }}
+
+    <div class="mb-3">{{ form.quantity.label }}</div>
+    {{ form.quantity }}
+    {{ form.quantity.errors }}
+
+    <div class="mb-3">{{ form.price.label }}</div>
+    {{ form.price }}
+    {{ form.price.errors }}
+
+    <div class="mb-3 form-check">{{ form.is_returned }} {{ form.is_returned.label }}</div>
+    <div class="mb-3 form-check">{{ form.is_canceled }} {{ form.is_canceled.label }}</div>
+
+    <button type="submit" class="btn btn-primary">{% trans 'Submit' %}</button> {# Translate the submit button text #}
+  </form>
+{% endblock %}

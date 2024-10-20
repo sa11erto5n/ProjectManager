@@ -1,0 +1,66 @@
+{% extends 'dashboard/index.html' %}
+{% load static i18n %}
+
+{% block extra_css %}
+  <style>
+    /* Add your custom CSS styles here */
+  </style>
+{% endblock %}
+
+{% block subtitle %}
+  -{% trans title %}
+{% endblock %}
+
+{% block heading %}
+  {% trans title %}
+{% endblock %}
+
+{% block PageContent %}
+  <div class="bg-white p-4 m-2 rounded">
+    <form method="POST" class="d-flex flex-column" id="createForm" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }} <!-- Ensure your form fields are rendered with Bootstrap classes -->
+      <button type="submit" class="btn btn-blue d-block me-auto">{% trans 'Create' %} {{ title }}</button>
+      <div id="error-messages" class="text-danger"></div> <!-- Div to display errors -->
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('createForm')
+    
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault() // Prevent default form submission
+      const formData = new FormData(form)
+    
+      try {
+        const response = await fetch('{% url create_url %}', {
+          // Use the current view's URL
+          method: 'POST',
+          body: formData
+        })
+    
+        if (!response.ok) {
+          const errorText = await response.text()
+          console.error('Server responded with an error:', errorText)
+          document.getElementById('error-messages').innerText = 'An error occurred while processing your request.'
+          return
+        }
+    
+        const data = await response.json()
+        const errorMessagesDiv = document.getElementById('error-messages')
+        errorMessagesDiv.innerHTML = ''
+    
+        if (data.status === 'error') {
+          for (const field in data.errors) {
+            errorMessagesDiv.innerHTML += `<p>${field}: ${data.errors[field].join(', ')}</p>`
+          }
+        } else if (data.status === 'success') {
+          window.location.href = "{% url success_url %}" // Redirect URL should be specified
+        }
+      } catch (error) {
+        console.error('Fetch error:', error)
+        document.getElementById('error-messages').innerText = 'An error occurred while submitting the form.'
+      }
+    })
+  </script>
+{% endblock %}
