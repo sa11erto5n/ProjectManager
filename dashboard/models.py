@@ -53,3 +53,32 @@ class Earning(models.Model):
     product     = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='earning', verbose_name=_('Product'))
     date_added  = models.DateField(auto_now_add=True, verbose_name=_('Date Added'))
     
+    def __str__(self):
+        return self.earning
+    
+class Request(models.Model):
+    TYPE_CHOICES = [
+        ('refund', _('Refund')),
+        ('reinvest', _('Reinvest')),
+    ]
+
+    user = models.ForeignKey(UserModel, on_delete=models.CASCADE, related_name='requests', verbose_name=_('User'))
+    project = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='requests', verbose_name=_('Project'))
+    earning = models.ForeignKey(Earning, on_delete=models.CASCADE, related_name='requests', verbose_name=_('Earning'))
+    request_type = models.CharField(max_length=10, choices=TYPE_CHOICES, verbose_name=_('Request Type'))
+
+
+    def __str__(self):
+        return _('Request by %(user)s for %(project)s - %(request_type)s') % {
+            'user': self.user,
+            'project': self.project,
+            'request_type': self.request_type,
+        }
+# models.py
+from django.db import models
+
+class NotificationsCounter(models.Model):
+    count = models.PositiveIntegerField(default=0)  # Store the count of notifications
+
+    def __str__(self):
+        return f"Notifications Count: {self.count}"

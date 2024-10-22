@@ -43,7 +43,7 @@ class EarningCreateView(UserPassesTestMixin,gv.GenericCreateView,LoginRequiredMi
     form_class = forms.EarningForm
     create_url = 'dash:create_earning'  # Ensure this matches your URL names
     success_url = 'dash:earnings_list'
-    title = _('Report')
+    title = _('Earning')
     template_name = 'dashboard/create.html'  # Use the global template
     def test_func(self) :
         user = self.request.user

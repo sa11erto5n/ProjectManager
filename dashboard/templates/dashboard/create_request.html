@@ -1,0 +1,11 @@
+{% extends 'dashboard/index.html' %}
+{% load i18n %} {# Load the translation library #}
+
+{% block PageContent %}
+  <h2>{% trans 'New Request ' %}</h2> {# Translate the title #}
+  <form method="POST" class="d-flex flex-column" id="requestForm" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit" class="btn btn-blue my-2 d-block me-auto">{% trans 'Create' %}</button> {# Translate the submit button text #}
+  </form>
+{% endblock %}

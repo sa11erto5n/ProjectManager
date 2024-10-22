@@ -38,7 +38,7 @@ class User(AbstractUser):
     ACCOUNT_TYPE_CHOICES = [
         ('admin', _('administator')),
         ('seller', _('Seller')),
-        ('contributor', _('Contributor')),
+        ('contributor', _('مساهم')),
     ]
 
     account_type = models.CharField(

@@ -18,94 +18,90 @@
 
 {% block PageContent %}
   <div class="d-flex flex-column justify-content-between" id="overview">
-    <h3 class="text-decoration-underline">{% trans 'Overview:' %}</h3>
-    <!-- Admin Menu -->
-    <div class="admin-menu d-flex justify-content-between align-items-center">
-      <!-- Users -->
-      <div class="d-flex bg-danger">
-        <i class="far fa-user-circle"></i>
-        <span>
-          <span>{% trans 'users' %}</span>
-          <span>{{ users_count }}</span>
-        </span>
-      </div>
-      <!-- Products -->
-      <div class="d-flex bg-blue">
-        <i class="fas fa-tags"></i>
-        <span>
-          <span>{% trans 'Products' %}</span>
-          <span>{{ products_count }}</span>
-        </span>
-      </div>
-      <!-- Reports -->
-      <div class="d-flex bg-success">
-        <i class="fas fa-circle-dollar-to-slot"></i>
-        <span>
-          <span>{% trans 'Contributions' %}</span>
-          <span>{{ contributions }}</span>
-        </span>
-      </div>
-    </div>
-    <h3 class="text-decoration-underline">{% trans 'Products' %}</h3>
-    <div class="admin-menu d-flex justify-content-between align-items-center">
-      {% for product in products %}
-        <div class="product d-flex flex-column text-dark" >
-            <img src={{product.product_image.url}} >
-          <span class="d-flex flex-row justify-content-between align-items-center w-100">
-            <span> {{product.product_name}} </span>
-            <span> {{product.product_price}} DZD</span>
+    {% if request.user.is_superuser %}
+      <h3 class="text-decoration-underline mb-3">{% trans 'Overview:' %}</h3>
+      <!-- Admin Menu -->
+      <div class="admin-menu d-flex justify-content-between align-items-center">
+        <!-- Users -->
+        <div class="d-flex bg-danger">
+          <i class="far fa-user-circle"></i>
+          <span>
+            <span>{% trans 'users' %}</span>
+            <span>{{ users_count }}</span>
           </span>
         </div>
-      {% endfor %}
+        <!-- Products -->
+        <div class="d-flex bg-blue">
+          <i class="fas fa-tags"></i>
+          <span>
+            <span>{% trans 'Products' %}</span>
+            <span>{{ products_count }}</span>
+          </span>
+        </div>
+        <!-- Reports -->
+        <div class="d-flex bg-success">
+          <i class="fas fa-circle-dollar-to-slot"></i>
+          <span>
+            <span>{% trans 'Contributions' %}</span>
+            <span>{{ contributions }}</span>
+          </span>
+        </div>
+      </div>
+      <h3 class="text-decoration-underline">{% trans 'Products' %}</h3>
+      <div class="admin-menu d-flex justify-content-between align-items-center">
+        {% for product in products %}
+          <!-- Product -->
 
-      <!-- Product -->
-    </div>
+          <div class="product d-flex flex-column text-dark">
+            <img src="{{ product.product_image.url }}" />
+            <span class="d-flex flex-row justify-content-between align-items-center w-100">
+              <span>{{ product.product_name }}</span>
+              <span>{{ product.product_price }} DZD</span>
+            </span>
+          </div>
+        {% endfor %}
+      </div>
+    {% elif request.user.account_type == 'contributer' %}
+    <h3 class="text-decoration-underline mb-3">{% trans 'My Earnings:' %}</h3>
+
+      {% comment %}Table{% endcomment %}
+      <!-- DataTable -->
+      <div class="bg-white p-2 m-2">
+        <div class="table-responsive">
+          <table id="usersTable" class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>
+                  {% trans 'Product' %}
+                </th>
+                <th>
+                  {% trans 'Earning' %}
+                </th>
+                <th>
+                  {% trans 'Date Earned' %}
+                </th>
+                <th>
+                  {% trans 'Actions' %}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in reqeusts %}
+                <tr>
+                  <td>{{ item.product }}</td>
+                  <td>{{ item.earning }}</td>
+                  <td>{{ item.date_added }}</td>
+                  <td>
+                    <a class="btn btn-success m-auto" href="{% url 'dash:request_create' %}"><i class="fas fa-edit"></i></a>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    {% endif %}
   </div>
-  <!-- DataTable -->
-  {% comment %} <div class="bg-light p-2 m-2">
-    <div class="table-responsive">
-      <table id="usersTable" class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>
-              {% trans 'Profile Picture' %}
-            </th>
-            <th>
-              {% trans 'First Name' %}
-            </th>
-            <th>
-              {% trans 'Last Name' %}
-            </th>
-            <th>
-              {% trans 'Account type' %}
-            </th>
-            <th>
-              {% trans 'Actions' %}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for user in users %}
-            <tr>
-              <td>
-                {% if user.profile_pic %}
-                  <img src="{{ user.profile_pic.url }}" class="profile-pic" alt="{{ user.first_name }}" />
-                {% else %}
-                  <img src="{% static 'img/user.png' %}" class="profile-pic" alt="{{ user.first_name }}" />
-                {% endif %}
-              </td>
-              <td>{{ user.first_name }}</td>
-              <td>{{ user.last_name }}</td>
-              <td>{{ user.get_account_type_display }}</td>
-              <td>
-                <a class="btn btn-success m-auto" href="{% url 'dash:user_edit' user.pk %}"><i class="fas fa-edit"></i></a>
-              </td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-  </div> {% endcomment %}
 
   <!-- Initialize DataTable with Bootstrap 5 style -->
 

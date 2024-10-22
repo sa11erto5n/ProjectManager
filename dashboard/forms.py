@@ -1,8 +1,10 @@
 from django import forms
-from .models import Product ,Contribution, Report, Earning
+from .models import Product ,Contribution, Report, Earning,Request
 from .widgets import ImageUploadWidget
 from django.utils.translation import gettext as _
 from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 class ProductForm(forms.ModelForm):
     class Meta:
@@ -43,7 +45,7 @@ class ContributionForm(forms.ModelForm):
         User = get_user_model()
         
         # Filter users based on account_type
-        self.fields['user'].queryset = User.objects.filter(account_type='contributer')
+        self.fields['user'].queryset = User.objects.filter(account_type='contributor')
 
 # Report Form
 class ReportForm(forms.ModelForm):
@@ -88,4 +90,16 @@ class EarningForm(forms.ModelForm):
         super(EarningForm, self).__init__(*args, **kwargs)
         User = get_user_model()
         # Filter users based on account_type
-        self.fields['user'].queryset = User.objects.filter(account_type='contruibuter')
+        self.fields['user'].queryset = User.objects.filter(account_type='contributer')
+
+
+class RequestForm(forms.ModelForm):
+    class Meta:
+        model = Request
+        fields = ['project', 'earning', 'request_type']
+        widgets = {
+            'project': forms.Select(attrs={'class': 'form-select'}),
+            'earning': forms.Select(attrs={'class': 'form-select'}),
+            'request_type': forms.Select(attrs={'class': 'form-select'}),
+        }
+

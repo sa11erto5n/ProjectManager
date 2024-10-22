@@ -117,6 +117,7 @@ th {
     display: none;
 }
 .dropdown-menu {
+    width: 240px;
     position: absolute;
     top: 120%;
     left: 0;
@@ -129,6 +130,8 @@ th {
     transform: translateY(-10px);
     transition: opacity var(--transition-speed), visibility var(--transition-speed), transform var(--transition-speed);
     z-index: 1;
+    max-height: 259px;
+    overflow: auto;
 }
 
 .dropdown-menu a {

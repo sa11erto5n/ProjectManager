@@ -21,6 +21,7 @@ def home_view(request):
         'products_count' : models.Product.objects.count(),
         'contributions' : models.Contribution.objects.count(),
         'products' : models.Product.objects.all().order_by('-date_added')[:5],
+        'reqeusts' : models.Earning.objects.filter(user=request.user),
         
         
     }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-20 17:49+0100\n"
+"POT-Creation-Date: 2024-10-22 10:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,22 +18,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: .\core\settings\base.py:78
+#: .\core\settings\base.py:80
 msgid "English"
 msgstr "إنجليزي"
 
-#: .\core\settings\base.py:79
+#: .\core\settings\base.py:81
 msgid "Arabic"
 msgstr "عربي"
 
 #: .\dashboard\contributions_views.py:19 .\dashboard\contributions_views.py:38
+#: .\dashboard\templates\dashboard\home.html:45
 #: .\dashboard\templates\dashboard\index.html:72
 #: .\dashboard\templates\dashboard\index.html:96
 msgid "Contributions"
 msgstr "المساهمات"
 
-#: .\dashboard\contributions_views.py:35 .\dashboard\forms.py:77
-#: .\dashboard\models.py:20 .\dashboard\reports_views.py:32
+#: .\dashboard\contributions_views.py:35 .\dashboard\forms.py:79
+#: .\dashboard\models.py:20 .\dashboard\models.py:68
+#: .\dashboard\reports_views.py:32
 msgid "User"
 msgstr "مستخدم"
 
@@ -50,13 +52,14 @@ msgid "User Earnings"
 msgstr "أرباح المستخدم"
 
 #: .\dashboard\earning_views.py:21 .\dashboard\earning_views.py:25
-#: .\dashboard\forms.py:78 .\dashboard\models.py:52
+#: .\dashboard\forms.py:80 .\dashboard\models.py:52
 msgid "Earned Price"
 msgstr "السعر المكتسب"
 
-#: .\dashboard\earning_views.py:22 .\dashboard\forms.py:79
+#: .\dashboard\earning_views.py:22 .\dashboard\forms.py:81
 #: .\dashboard\models.py:21 .\dashboard\models.py:27 .\dashboard\models.py:53
 #: .\dashboard\reports_views.py:33
+#: .\dashboard\templates\dashboard\home.html:76
 msgid "Product"
 msgstr "منتج"
 
@@ -68,13 +71,12 @@ msgstr "تاريخ الإضافة"
 msgid "Earnings List"
 msgstr "قائمة الأرباح"
 
-#: .\dashboard\earning_views.py:46 .\dashboard\reports_views.py:20
-#: .\dashboard\reports_views.py:41
-#: .\dashboard\templates\dashboard\report_create.html:5
-msgid "Report"
-msgstr "تقرير"
+#: .\dashboard\earning_views.py:46 .\dashboard\models.py:70
+#: .\dashboard\templates\dashboard\home.html:79
+msgid "Earning"
+msgstr "كسب"
 
-#: .\dashboard\forms.py:83
+#: .\dashboard\forms.py:85
 msgid "Enter earned price"
 msgstr "أدخل السعر المكتسب"
 
@@ -91,7 +93,9 @@ msgstr "الصفحة الرئيسية"
 msgid "Participants"
 msgstr "مشاركون"
 
-#: .\dashboard\menus.py:23 .\dashboard\templates\dashboard\index.html:66
+#: .\dashboard\menus.py:23 .\dashboard\templates\dashboard\home.html:37
+#: .\dashboard\templates\dashboard\home.html:50
+#: .\dashboard\templates\dashboard\index.html:66
 #: .\dashboard\templates\dashboard\index.html:108
 #: .\dashboard\templates\dashboard\products\create.html:11
 msgid "Products"
@@ -101,16 +105,16 @@ msgstr "منتجات"
 msgid "Other"
 msgstr "آخر"
 
-#: .\dashboard\menus.py:36 .\dashboard\templates\dashboard\index.html:143
+#: .\dashboard\menus.py:36 .\dashboard\templates\dashboard\index.html:154
 msgid "My Account"
 msgstr "حسابي"
 
 #: .\dashboard\models.py:9 .\dashboard\products_views.py:15
-#: .\dashboard\products_views.py:21
+#: .\dashboard\products_views.py:22
 msgid "Product Name"
 msgstr "اسم المنتج"
 
-#: .\dashboard\models.py:10 .\dashboard\products_views.py:16
+#: .\dashboard\models.py:10 .\dashboard\products_views.py:17
 msgid "Product Quantity"
 msgstr "كمية المنتج"
 
@@ -119,7 +123,7 @@ msgid "Remaining Quantity"
 msgstr "الكمية المتبقية"
 
 #: .\dashboard\models.py:12 .\dashboard\models.py:29
-#: .\dashboard\reports_views.py:35
+#: .\dashboard\products_views.py:16 .\dashboard\reports_views.py:35
 msgid "Price"
 msgstr "سعر"
 
@@ -155,13 +159,46 @@ msgstr "الكمية المتبقية من المنتج أقل من الكمية
 msgid "Cant create A report"
 msgstr "لا يمكن إنشاء تقرير"
 
-#: .\dashboard\products_views.py:17
+#: .\dashboard\models.py:57
+#, fuzzy, python-format
+msgid "ربح %(earning)s دج على %(product)s"
+msgstr "إختيار %(earing)s دج على %(product)s"
+
+#: .\dashboard\models.py:64
+msgid "Refund"
+msgstr "استرداد"
+
+#: .\dashboard\models.py:65
+msgid "Reinvest"
+msgstr "إعادة الاستثمار"
+
+#: .\dashboard\models.py:69
+msgid "Project"
+msgstr "مشروع"
+
+#: .\dashboard\models.py:71
+msgid "Request Type"
+msgstr "نوع الطلب"
+
+#: .\dashboard\models.py:75
+#, fuzzy, python-format
+#| msgid ""
+#| "Request by {self.user} for {self.project} - {self.request_type}"
+msgid "Request by %(user)s for %(project)s - %(request_type)s"
+msgstr "طلب من %(user)s لـ %(project)s - %(request_type)s"
+
+#: .\dashboard\products_views.py:18
 msgid "Creation Date"
 msgstr "تاريخ الإنشاء"
 
-#: .\dashboard\products_views.py:22
+#: .\dashboard\products_views.py:23
 msgid "Products List"
 msgstr "قائمة المنتجات"
+
+#: .\dashboard\reports_views.py:20 .\dashboard\reports_views.py:41
+#: .\dashboard\templates\dashboard\report_create.html:5
+msgid "Report"
+msgstr "تقرير"
 
 #: .\dashboard\reports_views.py:34
 msgid "Quantity"
@@ -183,9 +220,18 @@ msgstr "بيانات الإنشاء"
 msgid "Report deleted successfully."
 msgstr "تم حذف التقرير بنجاح."
 
+#: .\dashboard\requests_view.py:15
+msgid "You do not have permission to create a request."
+msgstr "ليس لديك الإذن لإنشاء طلب."
+
 #: .\dashboard\templates\dashboard\create.html:23
+#: .\dashboard\templates\dashboard\create_request.html:9
 msgid "Create"
 msgstr "يخلق"
+
+#: .\dashboard\templates\dashboard\create_request.html:5
+msgid "New Request "
+msgstr "طلب جديد"
 
 #: .\dashboard\templates\dashboard\create_user.html:10
 #: .\dashboard\templates\dashboard\index.html:60
@@ -214,7 +260,7 @@ msgstr "اسم العائلة"
 
 #: .\dashboard\templates\dashboard\create_user.html:37
 #: .\dashboard\templates\dashboard\user-edit.html:83
-#: .\dashboard\templates\dashboard\user-view.html:47
+#: .\dashboard\templates\dashboard\user-view.html:49
 #: .\frontend\templates\frontend\index.html:281
 msgid "Phone Number"
 msgstr "رقم التليفون"
@@ -225,10 +271,9 @@ msgid "Account Type"
 msgstr "نوع الحساب"
 
 #: .\dashboard\templates\dashboard\create_user.html:44
-#: .\dashboard\templates\dashboard\user-edit.html:90
-#, fuzzy
-#| msgid "administator"
-msgid "administrator"
+#: .\dashboard\templates\dashboard\index.html:55
+#: .\dashboard\templates\dashboard\user-edit.html:90 .\user_auth\models.py:39
+msgid "administator"
 msgstr "مدير"
 
 #: .\dashboard\templates\dashboard\create_user.html:47
@@ -237,7 +282,7 @@ msgid "Seller"
 msgstr "بائع"
 
 #: .\dashboard\templates\dashboard\create_user.html:50
-#: .\dashboard\templates\dashboard\user-edit.html:97 .\user_auth\models.py:41
+#: .\dashboard\templates\dashboard\user-edit.html:97
 msgid "Contributor"
 msgstr "مساهم"
 
@@ -251,31 +296,35 @@ msgid "Add user"
 msgstr "إضافة مستخدم"
 
 #: .\dashboard\templates\dashboard\home.html:15
-#: .\dashboard\templates\dashboard\index.html:158
+#: .\dashboard\templates\dashboard\index.html:43
+#: .\dashboard\templates\dashboard\index.html:169
 msgid "Controle Panel"
 msgstr "لوحة التحكم"
 
-#: .\dashboard\templates\dashboard\home.html:21
+#: .\dashboard\templates\dashboard\home.html:22
 msgid "Overview:"
 msgstr "ملخص:"
 
-#: .\dashboard\templates\dashboard\home.html:27
-#, fuzzy
-#| msgid "user"
+#: .\dashboard\templates\dashboard\home.html:29
 msgid "users"
 msgstr "المستخدمون"
+
+#: .\dashboard\templates\dashboard\home.html:65
+msgid "My Earnings:"
+msgstr "أرباحي:"
+
+#: .\dashboard\templates\dashboard\home.html:82
+msgid "Date Earned"
+msgstr "تاريخ الحصول عليها"
+
+#: .\dashboard\templates\dashboard\home.html:85
+#: .\dashboard\templates\dashboard\users.html:45
+msgid "Actions"
+msgstr "الإجراءات"
 
 #: .\dashboard\templates\dashboard\index.html:6
 msgid "Dashboard"
 msgstr "لوحة القيادة"
-
-#: .\dashboard\templates\dashboard\index.html:43
-msgid "dashboard"
-msgstr "لوحة القيادة"
-
-#: .\dashboard\templates\dashboard\index.html:55
-msgid "administator"
-msgstr "مدير"
 
 #: .\dashboard\templates\dashboard\index.html:78
 #: .\dashboard\templates\dashboard\index.html:114
@@ -294,17 +343,33 @@ msgstr "مساهم"
 msgid "seller"
 msgstr "بائع"
 
-#: .\dashboard\templates\dashboard\index.html:144
+#: .\dashboard\templates\dashboard\index.html:140
+#, fuzzy
+#| msgid "Request Type"
+msgid "request of"
+msgstr "طلب من"
+
+#: .\dashboard\templates\dashboard\index.html:140
+msgid "To"
+msgstr "ل"
+
+#: .\dashboard\templates\dashboard\index.html:140
+#, fuzzy
+#| msgid "Price"
+msgid "price of"
+msgstr "سعر"
+
+#: .\dashboard\templates\dashboard\index.html:141
+msgid "DZD"
+msgstr "دينار جزائري"
+
+#: .\dashboard\templates\dashboard\index.html:145
+msgid "Requests Menu Is Empty"
+msgstr "قائمة الطلبات فارغة"
+
+#: .\dashboard\templates\dashboard\index.html:155
 msgid "Logout"
 msgstr "تسجيل الخروج"
-
-#: .\dashboard\templates\dashboard\index.html:179
-msgid "Copyright"
-msgstr "حقوق الطبع والنشر"
-
-#: .\dashboard\templates\dashboard\index.html:179
-msgid "Your Website 2024"
-msgstr "موقعك 2024"
 
 #: .\dashboard\templates\dashboard\list.html:45
 msgid "الإجراءات"
@@ -325,7 +390,7 @@ msgstr "يُقدِّم"
 
 #: .\dashboard\templates\dashboard\user-edit.html:40
 #: .\dashboard\templates\dashboard\user-edit.html:44
-#: .\dashboard\templates\dashboard\user-view.html:54
+#: .\dashboard\templates\dashboard\user-view.html:56
 msgid "Edit Profile"
 msgstr "تعديل الملف الشخصي"
 
@@ -346,16 +411,11 @@ msgid "User Profile"
 msgstr "الملف الشخصي للمستخدم"
 
 #: .\dashboard\templates\dashboard\user-view.html:41
-#: .\dashboard\templates\dashboard\user-view.html:43
 #: .\dashboard\templates\dashboard\users.html:42
 msgid "Account type"
 msgstr "نوع الحساب"
 
-#: .\dashboard\templates\dashboard\user-view.html:43
-msgid "Administrator"
-msgstr "مدير"
-
-#: .\dashboard\templates\dashboard\user-view.html:48
+#: .\dashboard\templates\dashboard\user-view.html:50
 msgid "Last Login"
 msgstr "أخر تسجيل دخول"
 
@@ -363,27 +423,23 @@ msgstr "أخر تسجيل دخول"
 msgid "Profile Picture"
 msgstr "صورة الملف الشخصي"
 
-#: .\dashboard\templates\dashboard\users.html:45
-msgid "Actions"
-msgstr "الإجراءات"
-
-#: .\dashboard\views.py:49
+#: .\dashboard\views.py:55
 msgid "First Name is required."
 msgstr "الاسم الأول مطلوب."
 
-#: .\dashboard\views.py:51
+#: .\dashboard\views.py:57
 msgid "Last Name is required."
 msgstr "الاسم الأخير مطلوب."
 
-#: .\dashboard\views.py:53
+#: .\dashboard\views.py:59
 msgid "Phone number must be 10 digits long."
 msgstr "يجب أن يكون رقم الهاتف مكونًا من 10 أرقام."
 
-#: .\dashboard\views.py:55
+#: .\dashboard\views.py:61
 msgid "Invalid account type selected."
 msgstr "تم اختيار نوع حساب غير صالح."
 
-#: .\dashboard\views.py:57
+#: .\dashboard\views.py:63
 msgid "Password must be at least 4 characters long."
 msgstr "يجب أن تتكون كلمة المرور من 4 أحرف على الأقل."
 
@@ -610,11 +666,9 @@ msgstr "إرسال رسالة"
 msgid "Copyright &copy; Your Website 2023"
 msgstr "حقوق الطبع والنشر محفوظة لموقعك 2023"
 
-#: .\user_auth\models.py:39
-#, fuzzy
-#| msgid "administator"
-msgid "administarator"
-msgstr "مدير"
+#: .\user_auth\models.py:41
+msgid "مساهم"
+msgstr "مساهمة"
 
 #: .\user_auth\templates\auth\log-in.html:5
 msgid "Login"
@@ -631,3 +685,13 @@ msgstr "البريد الإلكتروني أو رقم الهاتف"
 #: .\user_auth\templates\auth\log-in.html:46
 msgid "LOG IN"
 msgstr "تسجيل الدخول"
+
+#, fuzzy
+#~ msgid "Earning of"
+#~ msgstr "كسب"
+
+#~ msgid " DZD on "
+#~ msgstr "دينار جزائري على"
+
+#~ msgid " for "
+#~ msgstr "ل"

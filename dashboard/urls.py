@@ -4,7 +4,7 @@ from . import products_views
 from . import reports_views as rp
 from .contributions_views import *
 from .earning_views import *
-
+from .requests_view import RequestCreateView
 app_name = 'dash'
 
 urlpatterns = [
@@ -29,4 +29,7 @@ urlpatterns = [
     path('earnings/', EarningsList.as_view(), name='earnings_list'),
     path('earnings/create/', EarningCreateView.as_view(), name='create_earning'),
     path('earnings/delete/<int:pk>/', EarningDelete.as_view(), name='delete_earning'),
+    # Request
+    path('request/create/', RequestCreateView, name='request_create'),
+    
 ]

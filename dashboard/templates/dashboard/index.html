@@ -34,7 +34,7 @@
       <!-- Sidebar -->
       <div class="d-flex flex-column bg-dark" id="sidebar">
         {% if request.user.profile_pic %}
-          <img src="{{ user.profile_pic.url }}" alt="Profile Picture" id="user-image-preview" />
+          <img src="{{ request.user.profile_pic.url }}" alt="Profile Picture" id="user-image-preview" />
         {% else %}
           <img src="{% static 'img/user.png' %}" alt="Profile Picture" id="user-image-preview" />
         {% endif %}
@@ -124,17 +124,24 @@
         {% block subnav %}
           <!-- Topbar -->
           <div class="header">
-            <div class="dropdown" id="notificationsDropdown">
-              <button class="dropdown-toggle" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell"></i>
-                <span class="notification-badge">3</span>
-              </button>
-              <div class="dropdown-menu" aria-label="Notifications menu">
-                <a href="#"><i class="fas fa-envelope"></i> New message from John</a>
-                <a href="#"><i class="fas fa-user-plus"></i> You have a new follower</a>
-                <a href="#"><i class="fas fa-thumbs-up"></i> Your post was liked</a>
+            {% if request.user.is_superuser %}
+              <div class="dropdown" id="notificationsDropdown">
+                <button class="dropdown-toggle" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-bell"></i>
+                  <span class="notification-badge">{{ notifications_count }}</span>
+                </button>
+                <div class="dropdown-menu" aria-label="Notifications menu">
+                  {% if notifications %}
+                    {% for item in notifications %}
+                      <a href="#">طلب من {{ item.user }} لـ {{ item.get_request_type_display }} سعر {{ item.earning }} دينار جزائري</a>
+                    {% endfor %}
+                  {% else %}
+                    <a href="">{% trans 'Requests Menu Is Empty' %}</a>
+                  {% endif %}
+                </div>
               </div>
-            </div>
+            {% endif %}
+
             <div class="dropdown" id="userDropdown">
               <button class="dropdown-toggle" aria-label="User menu" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></button>
               <div class="dropdown-menu" aria-label="User menu">
