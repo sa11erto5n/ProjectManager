@@ -17,7 +17,8 @@ LOGOUT_REDIRECT_URL  = 'user_auth:login'
 AUTH_USER_MODEL = "user_auth.User"
 
 ALLOWED_HOSTS = [
-    'projectmanager-ylq3.onrender.com'
+    'projectmanager-ylq3.onrender.com',
+    '127.0.0.1',
 ]
 
 INSTALLED_APPS = [

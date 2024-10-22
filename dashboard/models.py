@@ -54,7 +54,10 @@ class Earning(models.Model):
     date_added  = models.DateField(auto_now_add=True, verbose_name=_('Date Added'))
     
     def __str__(self):
-        return self.earning
+        return _('ربح %(earning)s دج على %(product)s') % {
+            'earning': self.earning,
+            'product': self.product,
+        }
     
 class Request(models.Model):
     TYPE_CHOICES = [
