@@ -4,30 +4,39 @@ from django.utils.translation import gettext as _
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from .forms import RequestForm
-from .models import Request, NotificationsCounter
+from .models import Request,Earning, NotificationsCounter
 from .context_processors import global_context
 from . import tests
 
+from django.shortcuts import get_object_or_404, redirect
+from django.core.exceptions import PermissionDenied
+from django.utils.translation import gettext as _
+
 @login_required
-def RequestCreateView(request):
-    # Check if the user is a contributor using your test function
+def RequestCreateView(request, request_type, earning_id):
+    # Check if the user is a contributor
     if not tests.is_contributor(request.user):
         raise PermissionDenied(_("You do not have permission to create a request."))
 
-    if request.method == 'POST':
-        form = RequestForm(request.POST)
-        if form.is_valid():
-            # Set the logged-in user as the request creator
-            new_request = form.save(commit=False)
-            new_request.user = request.user
-            new_request.save()
-            counter, created = NotificationsCounter.objects.get_or_create(id=1)
-            counter.count += 1
-            counter.save()  # Save the updated count
-            return redirect(reverse_lazy('dash:home'))  # Redirect after success
-    else:
-        form = RequestForm()
+    # Ensure the request_type is valid
+    if request_type not in ['refund', 'reinvest']:
+        raise PermissionDenied(_("Invalid request type."))
 
-    return render(request, 'dashboard/create_request.html', {
-        'form': form
-    })
+    # Fetch the Earning object
+    earning = get_object_or_404(Earning, id=earning_id)
+
+    # Create the request based on the type and save it
+    new_request = Request.objects.create(
+        user=request.user,
+        earning=earning,
+        project=earning.product,  # Assuming 'project' is linked to 'Earning'
+        request_type=request_type
+    )
+
+    # Increment the notifications counter
+    counter, created = NotificationsCounter.objects.get_or_create(id=1)
+    counter.count += 1
+    counter.save()
+
+    # Redirect to the dashboard after creation
+    return redirect('dash:home')

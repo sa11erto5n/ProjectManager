@@ -11,6 +11,7 @@ django-cloudinary-storage==0.3.0
 django-cockroachdb==5.1
 django-deep-translator==1.5.1
 django-imagekit==5.0.0
+django-rosetta==0.10.1
 futures==3.0.5
 goslate==1.5.4
 gunicorn==23.0.0

@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login,logout
 from django.http import JsonResponse
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
+from django.utils.translation import gettext as _
 
 User = get_user_model()
 
@@ -27,7 +28,7 @@ def login_view(request):
                 login(request, user)
                 return JsonResponse({"success": True, "redirect_url": "dash:home"})
             else:
-                return JsonResponse({"success": False, "error": "Invalid email/phone number or password."})
+                return JsonResponse({"success": False, "error": _("Invalid email/phone number or password.")})
         except Exception as e:
                 return JsonResponse({"success": False, "error": str(e)})
             

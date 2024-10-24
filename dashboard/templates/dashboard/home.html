@@ -62,7 +62,7 @@
         {% endfor %}
       </div>
     {% elif request.user.account_type == 'contributer' %}
-    <h3 class="text-decoration-underline mb-3">{% trans 'My Earnings:' %}</h3>
+      <h3 class="text-decoration-underline mb-3">{% trans 'My Earnings:' %}</h3>
 
       {% comment %}Table{% endcomment %}
       <!-- DataTable -->
@@ -92,7 +92,10 @@
                   <td>{{ item.earning }}</td>
                   <td>{{ item.date_added }}</td>
                   <td>
-                    <a class="btn btn-success m-auto" href="{% url 'dash:request_create' %}"><i class="fas fa-edit"></i></a>
+                    <!-- Refund Button -->
+                    <a class="btn btn-warning m-auto" href="{% url 'dash:request_create' 'refund' item.id %}"><i class="fas fa-undo"></i> {% trans 'Refund' %}</a>
+                    <!-- Reinvest Button -->
+                    <a class="btn btn-primary m-auto" href="{% url 'dash:request_create' 'reinvest' item.id %}"><i class="fas fa-redo"></i> {% trans 'Reinvest' %}</a>
                   </td>
                 </tr>
               {% endfor %}

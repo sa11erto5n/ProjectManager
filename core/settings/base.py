@@ -22,6 +22,7 @@ ALLOWED_HOSTS = [
 ]
 
 INSTALLED_APPS = [
+    'rosetta',
     'cloudinary',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,6 +39,10 @@ INSTALLED_APPS = [
     'dashboard',
     
 ]
+
+ROSETTA_REQUIRES_AUTH = True  # Only allow authenticated users to access Rosetta
+ROSETTA_ACCESS_FUNCTION = lambda user: user.is_superuser  # Onl
+
 AUTHENTICATION_BACKENDS = [
     'user_auth.authentication.EmailOrPhoneBackend',  # Custom backend
     'django.contrib.auth.backends.ModelBackend',     # Keep the default one as a fallback

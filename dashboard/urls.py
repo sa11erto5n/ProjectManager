@@ -30,6 +30,8 @@ urlpatterns = [
     path('earnings/create/', EarningCreateView.as_view(), name='create_earning'),
     path('earnings/delete/<int:pk>/', EarningDelete.as_view(), name='delete_earning'),
     # Request
-    path('request/create/', RequestCreateView, name='request_create'),
+    # path('request/create/', RequestCreateView, name='request_create'),
+    path('request/create/<str:request_type>/<int:earning_id>/', RequestCreateView, name='request_create'),
+
     
 ]
