@@ -5,6 +5,8 @@ from . import reports_views as rp
 from .contributions_views import *
 from .earning_views import *
 from .requests_view import RequestCreateView
+from . import join_requests_views as jrv
+
 app_name = 'dash'
 
 urlpatterns = [
@@ -32,6 +34,10 @@ urlpatterns = [
     # Request
     # path('request/create/', RequestCreateView, name='request_create'),
     path('request/create/<str:request_type>/<int:earning_id>/', RequestCreateView, name='request_create'),
-
+    # Join 
+    path('join_request', jrv.create_join_request, name='join_request_create'),
+    path('join_request/list', jrv.list, name='join_request_list'),
+    
+    
     
 ]

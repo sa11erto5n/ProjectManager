@@ -85,3 +85,21 @@ class NotificationsCounter(models.Model):
 
     def __str__(self):
         return f"Notifications Count: {self.count}"
+
+
+class JoinRequests(models.Model):
+    name = models.CharField(_("Full Name"), max_length=350)
+    email = models.EmailField(_("Email Address"), blank=True, null=True)
+    phone = models.CharField(_("Phone Number"), max_length=15)
+    role = models.CharField(
+        _("Role"),
+        max_length=20,
+        choices=[
+            ('contributer', _("Contributor")),
+            ('seller', _("Seller")),
+        ]
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.name} - {self.get_role_display()}'

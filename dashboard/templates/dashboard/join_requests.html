@@ -1,0 +1,50 @@
+{% extends 'dashboard/index.html' %}
+{% load i18n static %}
+
+{% block subtitle %}
+  - {% trans 'طلبات الانضمام' %}
+{% endblock %}
+
+{% block heading %}
+  <div class="d-flex align-items-center justify-content-between">
+    <h2 class="mb-0">{% trans 'طلبات الانضمام' %}</h2>
+  </div>
+{% endblock %}
+
+{% block PageContent %}
+  <div class="bg-light p-4 rounded" dir="rtl" style="font-family: 'Cairo', sans-serif; font-size: 16px;">
+    {% if objects %}
+      <div class="row">
+        {% for item in objects %}
+          <div class="col-md-6">
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">{{ item.name }}</h5>
+                <p class="card-text text-muted">
+                  {% trans 'طلب الانضمام إلى المنصة كـ' %}
+                  <span class="badge bg-blue">{{ item.get_role_display }}</span>
+                </p>
+                <hr />
+                <p class="mb-1">
+                  <strong>{% trans 'رقم الهاتف:' %}</strong>
+                  {{ item.phone }}
+                </p>
+                {% if item.email %}
+                  <p class="mb-1">
+                    <strong>{% trans 'البريد الإلكتروني:' %}</strong>
+                    {{ item.email }}
+                  </p>
+                {% endif %}
+                <small class="text-muted"><strong>{% trans 'تاريخ الطلب:' %}</strong> {{ item.created_at|date:'d M Y' }}</small>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="alert alert-warning text-center">
+        {% trans 'لا توجد طلبات في الوقت الحالي' %}
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

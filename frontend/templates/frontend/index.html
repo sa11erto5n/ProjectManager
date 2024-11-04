@@ -24,6 +24,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet" />
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
 
     <!-- SimpleLightbox plugin CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
@@ -48,17 +50,32 @@
           <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="{% trans 'Toggle navigation' %}"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav me-auto my-2 my-lg-0">
-              <li class="nav-item">
+              <li class="nav-item p-2">
                 <a class="nav-link" href="#about">{% trans 'About' %}</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item p-2">
                 <a class="nav-link" href="#services">{% trans 'Services' %}</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item p-2">
                 <a class="nav-link" href="#portfolio">{% trans 'Portfolio' %}</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item p-2">
                 <a class="nav-link" href="#contact">{% trans 'Contact' %}</a>
+              </li>
+              {% comment %}Login{% endcomment %}
+
+              {% if request.user.is_authenticated %}
+                <li class="nav-item bg-light p-2 rounded">
+                  <a class="nav-link text-dark text-center px-2 p-0" href="{% url 'dash:home' %}">{% trans 'Controle Panel' %}</a>
+                </li>
+              {% else %}
+                <li class="nav-item bg-light p-2 rounded">
+                  <a class="nav-link text-dark text-center px-2 p-0" href="{% url 'user_auth:login' %}">{% trans 'Login' %}</a>
+                </li>
+              {% endif %}
+              {% comment %}Requesting Signup{% endcomment %}
+              <li class="nav-item bg-blue p-2 rounded me-2">
+                <a class="nav-link text-light text-center px-2 p-0" href="{% url 'frontend:home' %}#join-us">{% trans 'Join Us ' %}</a>
               </li>
             </ul>
           </div>
@@ -243,6 +260,76 @@
           <a class="btn btn-light btn-xl" href="https://startbootstrap.com/theme/creative">{% trans 'Download Now!' %}</a>
         </div>
       </section>
+      <!-- Request -->
+      <section class="page-section" id="join-us">
+        <div class="container px-4 px-lg-5">
+          <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+              <h2 class="mt-0">{% trans 'Join Us!' %}</h2>
+              <hr class="divider" />
+              <p class="text-muted mb-5">
+                {% trans 'Ready to start your next project with us? Fill out the form below and we will get back to you as soon as possible!' %}
+              </p>
+            </div>
+          </div>
+          <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6">
+              <form id="requestForm">
+                {% csrf_token %}
+
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="name" name="r_name" type="text" placeholder="{% trans 'Enter your name' %}" required />
+                  <label for="name">{% trans 'Full Name' %}</label>
+                  <div class="invalid-feedback" data-sb-feedback="name:required">
+                    {% trans 'A name is required.' %}
+                  </div>
+                </div>
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="email" type="email" name="r_email" placeholder="{% trans 'Enter your email address' %}" />
+                  <label for="email">{% trans 'Email Address' %}</label>
+                  <div class="invalid-feedback" data-sb-feedback="email:required">
+                    {% trans 'An email is required.' %}
+                  </div>
+                  <div class="invalid-feedback" data-sb-feedback="email:email">
+                    {% trans 'Email is not valid.' %}
+                  </div>
+                </div>
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="phone" name="r_phone" type="tel" placeholder="{% trans 'Enter your phone number' %}" required />
+                  <label for="phone">{% trans 'Phone Number' %}</label>
+                  <div class="invalid-feedback" data-sb-feedback="phone:required">
+                    {% trans 'A phone number is required.' %}
+                  </div>
+                </div>
+                <select class="form-select mb-3" id="role" name="r_role" required>
+                  <option value="contributer">
+                    {% trans 'contributer' %}
+                  </option>
+                  <option value="seller">
+                    {% trans 'seller' %}
+                  </option>
+                </select>
+
+                <div class="d-none" id="submitSuccessMessage">
+                  <div class="text-center mb-3">
+                    <div class="fw-bolder">
+                      {% trans 'Form submission successful!' %}
+                    </div>
+                  </div>
+                </div>
+                <div class="d-none" id="submitErrorMessage">
+                  <div class="text-center text-danger mb-3">
+                    {% trans 'Error sending message!' %}
+                  </div>
+                </div>
+
+                <button class="btn btn-primary" id="requestBtn" type="submit">{% trans 'Send Request' %}</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Contact -->
       <section class="page-section" id="contact">
         <div class="container px-4 px-lg-5">
@@ -318,12 +405,65 @@
         </div>
       </footer>
     {% endblock %}
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Bootstrap core JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- SimpleLightbox plugin JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+    <!-- SweetAlert2 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Core theme JS -->
     <script src="{% static 'frontend/js/scripts.js' %}"></script>
+    <!-- Js -->
+    <script>
+      $(document).ready(function () {
+        var csrfToken = '{{ csrf_token }}'
+      
+        $.ajaxSetup({
+          headers: { 'X-CSRFToken': csrfToken }
+        })
+      
+        $('#requestForm').on('submit', function (e) {
+          e.preventDefault()
+      
+          const requestData = {
+            r_name: $('#name').val(),
+            r_email: $('#email').val(),
+            r_phone: $('#phone').val(),
+            r_role: $('#role').val()
+          }
+      
+          $.ajax({
+            url: "{% url 'dash:join_request_create' %}",
+            type: 'POST',
+            data: requestData,
+            success: function (response) {
+              if (response.status === 'success') {
+                Swal.fire({
+                  icon: 'success',
+                  title: response.message,
+                  showConfirmButton: false
+                })
+              } else {
+                Swal.fire({
+                  icon: 'error',
+                  title: response.message,
+                  confirmButtonText: "{% trans 'Close' %}"
+                })
+              }
+            },
+            error: function () {
+              Swal.fire({
+                icon: 'error',
+                title: "{% trans 'Error submitting the request. Please try again later.' %}",
+                confirmButtonText: "{% trans 'Close' %}"
+              })
+            }
+          })
+        })
+      })
+    </script>
     {% block extra_js %}
 
     {% endblock %}

@@ -82,6 +82,14 @@
                 {% trans 'Earnings' %}
               </a>
             </li>
+            <li class="nav-item justify-content-between">
+              <a href="{% url 'dash:join_request_list' %}"><i class="fab fa-first-order"></i>
+                 {% trans 'Join Requests' %}</a>
+
+                 <span class="bg-blue px-2 py-1 rounded mx-1">
+                  {{orders_count}}+
+                 </span>
+            </li>
 
             <!-- Contributer Menu -->
           {% elif request.user.account_type == 'contributer' %}
@@ -124,7 +132,7 @@
         {% block subnav %}
           <!-- Topbar -->
           <div class="header">
-            {% if request.user.is_superuser %}
+            {% if request.user.is_authenticated %}
               <div class="dropdown" id="notificationsDropdown">
                 <button class="dropdown-toggle" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-bell"></i>

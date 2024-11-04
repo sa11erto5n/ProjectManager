@@ -72,3 +72,6 @@
 .text-blue {
     color: #007bff;
 }
+.modal-backdrop.fade.modal-backdrop.fade.show{
+    z-index: 999;
+}
