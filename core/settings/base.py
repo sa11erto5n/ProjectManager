@@ -19,6 +19,7 @@ AUTH_USER_MODEL = "user_auth.User"
 ALLOWED_HOSTS = [
     'projectmanager-ylq3.onrender.com',
     '127.0.0.1',
+    'manager.m07amed.uk',
 ]
 
 INSTALLED_APPS = [
