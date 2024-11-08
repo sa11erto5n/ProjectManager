@@ -10,11 +10,14 @@ class UserManager(BaseUserManager):
         if email:
             email = self.normalize_email(email)
         
+        if phone_number is not None:
+            if not isinstance(phone_number, int) or len(str(phone_number)) != 10:
+                raise ValueError(_("Phone number should be an integer of length 10"))
+
         user = self.model(email=email, phone_number=phone_number, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
         return user
-
     def create_superuser(self, email=None, phone_number=None, password=None, **extra_fields):
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
