@@ -24,7 +24,7 @@ class UserManager(BaseUserManager):
         if extra_fields.get('is_superuser') is not True:
             raise ValueError(_("Superuser must have is_superuser=True."))
 
-        return self.create_user(email=email, phone_number=phone_number, password=password, **extra_fields)
+        return self.create_user(email=email, phone_number=phone_number, password=password, is_staff=True,is_superuser=True)
 
 class User(AbstractUser):
     username = None  # Remove username field
