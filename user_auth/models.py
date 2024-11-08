@@ -11,7 +11,7 @@ class UserManager(BaseUserManager):
             email = self.normalize_email(email)
         
         if phone_number is not None:
-            if not isinstance(phone_number, int) or len(str(phone_number)) != 10:
+            if not isinstance(phone_number, int) or len(phone_number) != 10:
                 raise ValueError(_("Phone number should be an integer of length 10"))
 
         user = self.model(email=email, phone_number=phone_number, **extra_fields)
