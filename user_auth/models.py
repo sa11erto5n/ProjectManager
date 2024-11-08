@@ -18,13 +18,15 @@ class UserManager(BaseUserManager):
     def create_superuser(self, email=None, phone_number=None, password=None, **extra_fields):
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
+        extra_fields.setdefault('account_type','admin')
+        print(f"Extra Fields: {extra_fields}")  # Debugging output
 
         if extra_fields.get('is_staff') is not True:
             raise ValueError(_("Superuser must have is_staff=True."))
         if extra_fields.get('is_superuser') is not True:
             raise ValueError(_("Superuser must have is_superuser=True."))
 
-        return self.create_user(email=email, phone_number=phone_number, password=password, is_staff=True,is_superuser=True)
+        return self.create_user(email=email, phone_number=phone_number, password=password, **extra_fields)
 
 class User(AbstractUser):
     username = None  # Remove username field
@@ -50,16 +52,6 @@ class User(AbstractUser):
 
     objects = UserManager()
 
-    def save(self, *args, **kwargs):
-        # Adjust permissions based on account type
-        if self.account_type == 'admin':
-            self.is_staff = True
-            self.is_superuser = True
-        else:
-            self.is_staff = False
-            self.is_superuser = False
-
-        super().save(*args, **kwargs)
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
