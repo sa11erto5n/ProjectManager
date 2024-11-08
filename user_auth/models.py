@@ -10,11 +10,11 @@ class UserManager(BaseUserManager):
         if email:
             email = self.normalize_email(email)
         
+       # Validate phone number if provided
         if phone_number is not None:
-            print(f'***********************{len(phone_number)}')
-            if not isinstance(phone_number, int) or len(phone_number) != 10:
-                raise ValueError(_("Phone number should be an integer of length 10"))
-
+            phone_number = str(phone_number)  # Convert to string to check length
+            if not phone_number.isdigit() or len(phone_number) != 10:
+                raise ValueError(_("Phone number should be a 10-digit number"))
         user = self.model(email=email, phone_number=phone_number, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
