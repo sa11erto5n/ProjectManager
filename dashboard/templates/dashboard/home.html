@@ -51,13 +51,21 @@
       <div class="admin-menu d-flex justify-content-between align-items-center">
         {% for product in products %}
           <!-- Product -->
-
-          <div class="product d-flex flex-column text-dark">
-            <img src="{{ product.product_image.url }}" />
-            <span class="d-flex flex-row justify-content-between align-items-center w-100">
-              <span>{{ product.product_name }}</span>
-              <span>{{ product.product_price }} DZD</span>
-            </span>
+          <div class="product d-flex flex-column text-dark rounded w-50">
+            <table class='table table-bordered table-striped'>
+              <thead>
+                <tr>
+                  <th>{% trans "Product" %}</th>
+                  <th>{% trans "Price" %}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{ product.product_name }}</td>
+                  <td>{{ product.product_price }} DZD</td>
+                </tr>
+              </tbody>
+            </table>  
           </div>
         {% endfor %}
       </div>

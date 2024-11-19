@@ -11,7 +11,7 @@ class ProductsList(gv.BaseListView,LoginRequiredMixin,UserPassesTestMixin):
     create_url = 'dash:create_product'
     delete_url = 'dash:delete_product'
     fields = [
-        (_('Product Image'), 'product_image'),
+        (_('Product Reference'), 'product_id'),
         (_('Product Name'), 'product_name'),
         (_('Price'), 'product_price'),
         (_('Product Quantity'), 'product_quantity'),

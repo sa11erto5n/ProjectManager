@@ -14,7 +14,7 @@
   {% comment %}Core Style{% endcomment %}
   <link rel="stylesheet" href="{% static 'dashboard/css/index.css' %}" />
   <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
   <!-- DataTables CSS for Bootstrap 5 -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" />
@@ -60,8 +60,8 @@
             </li>
             <li class="nav-item">
               <a href="{% url 'dash:products_list' %}">
-                <i class="fas fa-tags"></i>
-                {% trans 'Products' %}
+                <i class="fas fa-layer-group"></i>
+                {% trans 'Stock' %}
               </a>
             </li>
             <li class="nav-item">
@@ -84,7 +84,7 @@
             </li>
             <li class="nav-item justify-content-between">
               <a href="{% url 'dash:join_request_list' %}"><i class="fab fa-first-order"></i>
-                 {% trans 'Join Requests' %}</a>
+                 {% trans 'Requests' %}</a>
 
                  <span class="bg-blue px-2 py-1 rounded mx-1">
                   {{orders_count}}+

@@ -22,7 +22,6 @@
 {% block heading %}
   <div class="d-flex align-items-center justify-content-between">
     {{ title }}
-
     {% if create_url %}
       <a class="btn btn-blue" href="{% url create_url %}"><i class="fas fa-plus"></i></a>
     {% endif %}
@@ -71,12 +70,12 @@
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery CDN -->
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script> <!-- DataTables JS CDN -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert2 CDN -->
   <script>
-    $(document).ready(function () {
-      $('#globalDataTable').DataTable({
+    document.addEventListener('DOMContentLoaded', function () {
+      // Initialize DataTable without jQuery
+      const dataTable = new DataTable('#globalDataTable', {
         language: {
           url: '//cdn.datatables.net/plug-ins/2.1.8/i18n/ar.json' // Arabic DataTable language support
         },
@@ -87,43 +86,46 @@
         info: true,
         autoWidth: false,
         responsive: true
-      })
-    
-      // Handle delete button click
-      $('.delete-item').on('click', function () {
-        const itemId = $(this).data('id')
-        const deleteUrl = $(this).data('url')
-    
-        Swal.fire({
-          title: 'هل أنت متأكد؟',
-          text: 'لا يمكن التراجع عن هذا الإجراء!',
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#d33',
-          cancelButtonColor: '#3085d6',
-          confirmButtonText: 'نعم، احذف!',
-          cancelButtonText: 'إلغاء'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            fetch(deleteUrl, {
-              method: 'POST',
-              headers: {
-                'X-CSRFToken': '{{ csrf_token }}' // Ensure CSRF token is sent
-              }
-            })
-              .then((response) => response.json())
-              .then((data) => {
-                if (data.status === 'success') {
-                  Swal.fire('محذوف!', 'تم حذف العنصر بنجاح.', 'success').then(() => {
-                    location.reload() // Reload the page to see the updated list
-                  })
-                } else {
-                  Swal.fire('خطأ!', 'لم يتم حذف العنصر. حاول مرة أخرى.', 'error')
+      });
+
+      // Handle delete button click without jQuery
+      const deleteButtons = document.querySelectorAll('.delete-item');
+      deleteButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          const itemId = this.getAttribute('data-id');
+          const deleteUrl = this.getAttribute('data-url');
+  
+          Swal.fire({
+            title: 'هل أنت متأكد؟',
+            text: 'لا يمكن التراجع عن هذا الإجراء!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'نعم، احذف!',
+            cancelButtonText: 'إلغاء'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              fetch(deleteUrl, {
+                method: 'POST',
+                headers: {
+                  'X-CSRFToken': '{{ csrf_token }}' // Ensure CSRF token is sent
                 }
               })
-          }
-        })
-      })
-    })
+                .then((response) => response.json())
+                .then((data) => {
+                  if (data.status === 'success') {
+                    Swal.fire('محذوف!', 'تم حذف العنصر بنجاح.', 'success').then(() => {
+                      location.reload(); // Reload the page to see the updated list
+                    });
+                  } else {
+                    Swal.fire('خطأ!', 'لم يتم حذف العنصر. حاول مرة أخرى.', 'error');
+                  }
+                });
+            }
+          });
+        });
+      });
+    });
   </script>
 {% endblock %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-04 20:37+0100\n"
+"POT-Creation-Date: 2024-11-13 15:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,545 +18,539 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: .\core\settings\base.py:87
+#: core/settings/base.py:88
 msgid "English"
 msgstr "إنجليزي"
 
-#: .\core\settings\base.py:88
+#: core/settings/base.py:89
 msgid "Arabic"
 msgstr "عربي"
 
-#: .\dashboard\contributions_views.py:19 .\dashboard\contributions_views.py:38
-#: .\dashboard\templates\dashboard\home.html:45
-#: .\dashboard\templates\dashboard\index.html:72
-#: .\dashboard\templates\dashboard\index.html:100
+#: dashboard/contributions_views.py:19 dashboard/contributions_views.py:38
+#: dashboard/templates/dashboard/home.html:45
+#: dashboard/templates/dashboard/index.html:72
+#: dashboard/templates/dashboard/index.html:104
 msgid "Contributions"
 msgstr "المساهمات"
 
-#: .\dashboard\contributions_views.py:35 .\dashboard\forms.py:79
-#: .\dashboard\models.py:20 .\dashboard\models.py:68
-#: .\dashboard\reports_views.py:32
+#: dashboard/contributions_views.py:35 dashboard/forms.py:79
+#: dashboard/models.py:20 dashboard/models.py:68 dashboard/reports_views.py:32
 msgid "User"
 msgstr "مستخدم"
 
-#: .\dashboard\contributions_views.py:36 .\dashboard\models.py:22
+#: dashboard/contributions_views.py:36 dashboard/models.py:22
 msgid "Contribution Price"
 msgstr "سعر المساهمة"
 
-#: .\dashboard\contributions_views.py:69
+#: dashboard/contributions_views.py:69
 msgid "Contribution deleted successfully."
 msgstr "تم حذف المساهمة بنجاح."
 
-#: .\dashboard\earning_views.py:20 .\dashboard\models.py:51
+#: dashboard/earning_views.py:20 dashboard/models.py:51
 msgid "User Earnings"
 msgstr "أرباح المستخدم"
 
-#: .\dashboard\earning_views.py:21 .\dashboard\earning_views.py:25
-#: .\dashboard\forms.py:80 .\dashboard\models.py:52
+#: dashboard/earning_views.py:21 dashboard/earning_views.py:25
+#: dashboard/forms.py:80 dashboard/models.py:52
 msgid "Earned Price"
 msgstr "السعر المكتسب"
 
-#: .\dashboard\earning_views.py:22 .\dashboard\forms.py:81
-#: .\dashboard\models.py:21 .\dashboard\models.py:27 .\dashboard\models.py:53
-#: .\dashboard\reports_views.py:33
-#: .\dashboard\templates\dashboard\home.html:76
+#: dashboard/earning_views.py:22 dashboard/forms.py:81 dashboard/models.py:21
+#: dashboard/models.py:27 dashboard/models.py:53 dashboard/reports_views.py:33
+#: dashboard/templates/dashboard/home.html:76
 msgid "Product"
 msgstr "منتج"
 
-#: .\dashboard\earning_views.py:23 .\dashboard\models.py:54
+#: dashboard/earning_views.py:23 dashboard/models.py:54
 msgid "Date Added"
 msgstr "تاريخ الإضافة"
 
-#: .\dashboard\earning_views.py:26
+#: dashboard/earning_views.py:26
 msgid "Earnings List"
 msgstr "قائمة الأرباح"
 
-#: .\dashboard\earning_views.py:46 .\dashboard\models.py:70
-#: .\dashboard\templates\dashboard\home.html:79
+#: dashboard/earning_views.py:46 dashboard/models.py:70
+#: dashboard/templates/dashboard/home.html:79
 msgid "Earning"
 msgstr "كسب"
 
-#: .\dashboard\forms.py:85
+#: dashboard/forms.py:85
 msgid "Enter earned price"
 msgstr "أدخل السعر المكتسب"
 
-#: .\dashboard\join_requests_views.py:15
+#: dashboard/join_requests_views.py:18
 #, fuzzy
 #| msgid "Email Address"
 msgid "Email already exists"
 msgstr "البريد الإلكتروني موجود بالفعل"
 
-#: .\dashboard\join_requests_views.py:17
+#: dashboard/join_requests_views.py:20
 msgid "Phone number already exists"
 msgstr "رقم الهاتف موجود بالفعل"
 
-#: .\dashboard\join_requests_views.py:27
+#: dashboard/join_requests_views.py:22
+msgid "You have to agree the privacy policy"
+msgstr "يجب عليك الموافقة على سياسة الخصوصية"
+
+#: dashboard/join_requests_views.py:33
 msgid "Request submitted. Please wait for a reply."
 msgstr "تم تقديم الطلب. يرجى الانتظار للحصول على رد."
 
-#: .\dashboard\join_requests_views.py:30
+#: dashboard/join_requests_views.py:37
 msgid "Invalid request method"
 msgstr "طريقة الطلب غير صالحة"
 
-#: .\dashboard\menus.py:5
+#: dashboard/menus.py:5
 msgid "Main Menu"
 msgstr "القائمة الرئيسية"
 
-#: .\dashboard\menus.py:9 .\dashboard\templates\dashboard\home.html:10
-#: .\dashboard\templates\dashboard\index.html:48
+#: dashboard/menus.py:9 dashboard/templates/dashboard/home.html:10
+#: dashboard/templates/dashboard/index.html:48
 msgid "Home Page"
 msgstr "الصفحة الرئيسية"
 
-#: .\dashboard\menus.py:16
+#: dashboard/menus.py:16
 msgid "Participants"
 msgstr "مشاركون"
 
-#: .\dashboard\menus.py:23 .\dashboard\templates\dashboard\home.html:37
-#: .\dashboard\templates\dashboard\home.html:50
-#: .\dashboard\templates\dashboard\index.html:66
-#: .\dashboard\templates\dashboard\index.html:112
-#: .\dashboard\templates\dashboard\products\create.html:11
+#: dashboard/menus.py:23 dashboard/templates/dashboard/home.html:37
+#: dashboard/templates/dashboard/home.html:50
+#: dashboard/templates/dashboard/index.html:116
+#: dashboard/templates/dashboard/products/create.html:11
 msgid "Products"
 msgstr "منتجات"
 
-#: .\dashboard\menus.py:33
+#: dashboard/menus.py:33
 msgid "Other"
 msgstr "آخر"
 
-#: .\dashboard\menus.py:36 .\dashboard\templates\dashboard\index.html:154
+#: dashboard/menus.py:36 dashboard/templates/dashboard/index.html:158
 msgid "My Account"
 msgstr "حسابي"
 
-#: .\dashboard\models.py:9 .\dashboard\products_views.py:15
-#: .\dashboard\products_views.py:22
+#: dashboard/models.py:9 dashboard/products_views.py:15
+#: dashboard/products_views.py:22
 msgid "Product Name"
 msgstr "اسم المنتج"
 
-#: .\dashboard\models.py:10 .\dashboard\products_views.py:17
+#: dashboard/models.py:10 dashboard/products_views.py:17
 msgid "Product Quantity"
 msgstr "كمية المنتج"
 
-#: .\dashboard\models.py:11
+#: dashboard/models.py:11
 msgid "Remaining Quantity"
 msgstr "الكمية المتبقية"
 
-#: .\dashboard\models.py:12 .\dashboard\models.py:29
-#: .\dashboard\products_views.py:16 .\dashboard\reports_views.py:35
+#: dashboard/models.py:12 dashboard/models.py:29
+#: dashboard/products_views.py:16 dashboard/reports_views.py:35
 msgid "Price"
 msgstr "سعر"
 
-#: .\dashboard\models.py:13 .\dashboard\products_views.py:14
+#: dashboard/models.py:13 dashboard/products_views.py:14
 msgid "Product Image"
 msgstr "صورة المنتج"
 
-#: .\dashboard\models.py:26
+#: dashboard/models.py:26
 msgid "User Reports"
 msgstr "تقارير المستخدم"
 
-#: .\dashboard\models.py:28
+#: dashboard/models.py:28
 msgid "Sold Quantity"
 msgstr "الكمية المباعة"
 
-#: .\dashboard\models.py:30
+#: dashboard/models.py:30
 msgid "Date Sold"
 msgstr "تاريخ البيع"
 
-#: .\dashboard\models.py:31
+#: dashboard/models.py:31
 msgid "Returned Products?"
 msgstr "المنتجات المرتجعة؟"
 
-#: .\dashboard\models.py:32
+#: dashboard/models.py:32
 msgid "Canceled Order?"
 msgstr "تم إلغاء الطلب؟"
 
-#: .\dashboard\models.py:38
+#: dashboard/models.py:38
 msgid "The remaining quantity of the product is less than the quantity sold."
 msgstr "الكمية المتبقية من المنتج أقل من الكمية المباعة."
 
-#: .\dashboard\models.py:47
+#: dashboard/models.py:47
 msgid "Cant create A report"
 msgstr "لا يمكن إنشاء تقرير"
 
-#: .\dashboard\models.py:57
+#: dashboard/models.py:57
 #, fuzzy, python-format
 msgid "ربح %(earning)s دج على %(product)s"
 msgstr "إختيار %(earing)s دج على %(product)s"
 
-#: .\dashboard\models.py:64 .\dashboard\templates\dashboard\home.html:97
+#: dashboard/models.py:64 dashboard/templates/dashboard/home.html:97
 msgid "Refund"
 msgstr "استرداد"
 
-#: .\dashboard\models.py:65 .\dashboard\templates\dashboard\home.html:99
+#: dashboard/models.py:65 dashboard/templates/dashboard/home.html:99
 msgid "Reinvest"
 msgstr "إعادة الاستثمار"
 
-#: .\dashboard\models.py:69
+#: dashboard/models.py:69
 msgid "Project"
 msgstr "مشروع"
 
-#: .\dashboard\models.py:71
+#: dashboard/models.py:71
 msgid "Request Type"
 msgstr "نوع الطلب"
 
-#: .\dashboard\models.py:75
+#: dashboard/models.py:75
 #, fuzzy, python-format
 #| msgid ""
 #| "Request by {self.user} for {self.project} - {self.request_type}"
 msgid "Request by %(user)s for %(project)s - %(request_type)s"
 msgstr "طلب من %(user)s لـ %(project)s - %(request_type)s"
 
-#: .\dashboard\models.py:91 .\frontend\templates\frontend\index.html:285
-#: .\frontend\templates\frontend\index.html:353
+#: dashboard/models.py:91 frontend/templates/frontend/index.html:285
+#: frontend/templates/frontend/index.html:357
 msgid "Full Name"
 msgstr "الاسم الكامل"
 
-#: .\dashboard\models.py:92 .\frontend\templates\frontend\index.html:292
-#: .\frontend\templates\frontend\index.html:360
+#: dashboard/models.py:92 frontend/templates/frontend/index.html:292
+#: frontend/templates/frontend/index.html:364
 msgid "Email Address"
 msgstr "عنوان البريد الإلكتروني"
 
-#: .\dashboard\models.py:93
-#: .\dashboard\templates\dashboard\create_user.html:37
-#: .\dashboard\templates\dashboard\user-edit.html:83
-#: .\dashboard\templates\dashboard\user-view.html:49
-#: .\frontend\templates\frontend\index.html:302
-#: .\frontend\templates\frontend\index.html:370
+#: dashboard/models.py:93 dashboard/templates/dashboard/create_user.html:37
+#: dashboard/templates/dashboard/user-edit.html:83
+#: dashboard/templates/dashboard/user-view.html:49
+#: frontend/templates/frontend/index.html:302
+#: frontend/templates/frontend/index.html:374
 msgid "Phone Number"
 msgstr "رقم التليفون"
 
-#: .\dashboard\models.py:95
+#: dashboard/models.py:95
 msgid "Role"
 msgstr "دور"
 
-#: .\dashboard\models.py:98
-#: .\dashboard\templates\dashboard\create_user.html:50
-#: .\dashboard\templates\dashboard\user-edit.html:97 .\user_auth\models.py:38
+#: dashboard/models.py:98 dashboard/templates/dashboard/create_user.html:50
+#: dashboard/templates/dashboard/user-edit.html:97 user_auth/models.py:42
 msgid "Contributor"
 msgstr "مساهم"
 
-#: .\dashboard\models.py:99
-#: .\dashboard\templates\dashboard\create_user.html:47
-#: .\dashboard\templates\dashboard\user-edit.html:94 .\user_auth\models.py:37
+#: dashboard/models.py:99 dashboard/templates/dashboard/create_user.html:47
+#: dashboard/templates/dashboard/user-edit.html:94 user_auth/models.py:41
 msgid "Seller"
 msgstr "بائع"
 
-#: .\dashboard\products_views.py:18
+#: dashboard/products_views.py:18
 msgid "Creation Date"
 msgstr "تاريخ الإنشاء"
 
-#: .\dashboard\products_views.py:23
+#: dashboard/products_views.py:23
 msgid "Products List"
 msgstr "قائمة المنتجات"
 
-#: .\dashboard\reports_views.py:20 .\dashboard\reports_views.py:41
-#: .\dashboard\templates\dashboard\report_create.html:5
+#: dashboard/reports_views.py:20 dashboard/reports_views.py:41
+#: dashboard/templates/dashboard/report_create.html:5
 msgid "Report"
 msgstr "تقرير"
 
-#: .\dashboard\reports_views.py:34
+#: dashboard/reports_views.py:34
 msgid "Quantity"
 msgstr "كمية"
 
-#: .\dashboard\reports_views.py:36
+#: dashboard/reports_views.py:36
 msgid "Returned"
 msgstr "عاد"
 
-#: .\dashboard\reports_views.py:37
+#: dashboard/reports_views.py:37
 msgid "Canceled"
 msgstr "تم الإلغاء"
 
-#: .\dashboard\reports_views.py:38
+#: dashboard/reports_views.py:38
 msgid "Creation Data"
 msgstr "بيانات الإنشاء"
 
-#: .\dashboard\reports_views.py:68
+#: dashboard/reports_views.py:68
 msgid "Report deleted successfully."
 msgstr "تم حذف التقرير بنجاح."
 
-#: .\dashboard\requests_view.py:19
+#: dashboard/requests_view.py:19
 msgid "You do not have permission to create a request."
 msgstr "ليس لديك الإذن لإنشاء طلب."
 
-#: .\dashboard\requests_view.py:23
+#: dashboard/requests_view.py:23
 #, fuzzy
 #| msgid "Invalid account type selected."
 msgid "Invalid request type."
 msgstr "نوع الطلب غير صالح."
 
-#: .\dashboard\templates\dashboard\create.html:23
-#: .\dashboard\templates\dashboard\create_request.html:9
+#: dashboard/templates/dashboard/create.html:23
+#: dashboard/templates/dashboard/create_request.html:9
 msgid "Create"
 msgstr "يخلق"
 
-#: .\dashboard\templates\dashboard\create_request.html:5
+#: dashboard/templates/dashboard/create_request.html:5
 msgid "New Request "
 msgstr "طلب جديد"
 
-#: .\dashboard\templates\dashboard\create_user.html:10
-#: .\dashboard\templates\dashboard\index.html:60
-#: .\dashboard\templates\dashboard\users.html:16
-#: .\dashboard\templates\dashboard\users.html:21
+#: dashboard/templates/dashboard/create_user.html:10
+#: dashboard/templates/dashboard/index.html:60
+#: dashboard/templates/dashboard/users.html:16
+#: dashboard/templates/dashboard/users.html:21
 msgid "Users"
 msgstr "المستخدمون"
 
-#: .\dashboard\templates\dashboard\create_user.html:15
+#: dashboard/templates/dashboard/create_user.html:15
 msgid "Add a new User"
 msgstr "إضافة مستخدم جديد"
 
-#: .\dashboard\templates\dashboard\create_user.html:27
-#: .\dashboard\templates\dashboard\user-edit.html:71
-#: .\dashboard\templates\dashboard\user-view.html:37
-#: .\dashboard\templates\dashboard\users.html:36
+#: dashboard/templates/dashboard/create_user.html:27
+#: dashboard/templates/dashboard/user-edit.html:71
+#: dashboard/templates/dashboard/user-view.html:37
+#: dashboard/templates/dashboard/users.html:36
 msgid "First Name"
 msgstr "الاسم الأول"
 
-#: .\dashboard\templates\dashboard\create_user.html:31
-#: .\dashboard\templates\dashboard\user-edit.html:76
-#: .\dashboard\templates\dashboard\user-view.html:38
-#: .\dashboard\templates\dashboard\users.html:39
+#: dashboard/templates/dashboard/create_user.html:31
+#: dashboard/templates/dashboard/user-edit.html:76
+#: dashboard/templates/dashboard/user-view.html:38
+#: dashboard/templates/dashboard/users.html:39
 msgid "Last Name"
 msgstr "اسم العائلة"
 
-#: .\dashboard\templates\dashboard\create_user.html:41
-#: .\dashboard\templates\dashboard\user-edit.html:87 .\user_auth\models.py:42
+#: dashboard/templates/dashboard/create_user.html:41
+#: dashboard/templates/dashboard/user-edit.html:87 user_auth/models.py:46
 msgid "Account Type"
 msgstr "نوع الحساب"
 
-#: .\dashboard\templates\dashboard\create_user.html:44
-#: .\dashboard\templates\dashboard\index.html:55
-#: .\dashboard\templates\dashboard\user-edit.html:90
+#: dashboard/templates/dashboard/create_user.html:44
+#: dashboard/templates/dashboard/index.html:55
+#: dashboard/templates/dashboard/user-edit.html:90
 msgid "administator"
 msgstr "مدير"
 
-#: .\dashboard\templates\dashboard\create_user.html:56
-#: .\user_auth\templates\auth\log-in.html:39
+#: dashboard/templates/dashboard/create_user.html:56
+#: user_auth/templates/auth/log-in.html:39
 msgid "Password"
 msgstr "كلمة المرور"
 
-#: .\dashboard\templates\dashboard\create_user.html:62
+#: dashboard/templates/dashboard/create_user.html:62
 msgid "Add user"
 msgstr "إضافة مستخدم"
 
-#: .\dashboard\templates\dashboard\home.html:15
-#: .\dashboard\templates\dashboard\index.html:43
-#: .\dashboard\templates\dashboard\index.html:169
-#: .\frontend\templates\frontend\index.html:71
+#: dashboard/templates/dashboard/home.html:15
+#: dashboard/templates/dashboard/index.html:43
+#: dashboard/templates/dashboard/index.html:173
+#: frontend/templates/frontend/index.html:71
 msgid "Controle Panel"
 msgstr "لوحة التحكم"
 
-#: .\dashboard\templates\dashboard\home.html:22
+#: dashboard/templates/dashboard/home.html:22
 msgid "Overview:"
 msgstr "ملخص:"
 
-#: .\dashboard\templates\dashboard\home.html:29
+#: dashboard/templates/dashboard/home.html:29
 msgid "users"
 msgstr "المستخدمون"
 
-#: .\dashboard\templates\dashboard\home.html:65
+#: dashboard/templates/dashboard/home.html:65
 msgid "My Earnings:"
 msgstr "أرباحي:"
 
-#: .\dashboard\templates\dashboard\home.html:82
+#: dashboard/templates/dashboard/home.html:82
 msgid "Date Earned"
 msgstr "تاريخ الحصول عليها"
 
-#: .\dashboard\templates\dashboard\home.html:85
-#: .\dashboard\templates\dashboard\users.html:45
+#: dashboard/templates/dashboard/home.html:85
+#: dashboard/templates/dashboard/users.html:45
 msgid "Actions"
 msgstr "الإجراءات"
 
-#: .\dashboard\templates\dashboard\index.html:6
+#: dashboard/templates/dashboard/index.html:6
 msgid "Dashboard"
 msgstr "لوحة القيادة"
 
-#: .\dashboard\templates\dashboard\index.html:78
-#: .\dashboard\templates\dashboard\index.html:118
+#: dashboard/templates/dashboard/index.html:66
+msgid "Stock"
+msgstr "مخزون"
+
+#: dashboard/templates/dashboard/index.html:78
+#: dashboard/templates/dashboard/index.html:122
 msgid "Reports"
 msgstr "التقارير"
 
-#: .\dashboard\templates\dashboard\index.html:84
+#: dashboard/templates/dashboard/index.html:84
 msgid "Earnings"
 msgstr "الأرباح"
 
-#: .\dashboard\templates\dashboard\index.html:89
-#, fuzzy
-#| msgid "New Request "
-msgid "Join Request"
-msgstr "طلب الانضمام"
-
-#: .\dashboard\templates\dashboard\index.html:95
-#: .\frontend\templates\frontend\index.html:309
-msgid "contributer"
-msgstr "مساهم"
-
-#: .\dashboard\templates\dashboard\index.html:107
-#: .\frontend\templates\frontend\index.html:312
-msgid "seller"
-msgstr "بائع"
-
-#: .\dashboard\templates\dashboard\index.html:145
-msgid "Requests Menu Is Empty"
-msgstr "قائمة الطلبات فارغة"
-
-#: .\dashboard\templates\dashboard\index.html:155
-msgid "Logout"
-msgstr "تسجيل الخروج"
-
-#: .\dashboard\templates\dashboard\join_requests.html:5
-#: .\dashboard\templates\dashboard\join_requests.html:10
+#: dashboard/templates/dashboard/index.html:89
 #, fuzzy
 #| msgid "New Request "
 msgid "Join Requests"
 msgstr "طلبات الانضمام"
 
-#: .\dashboard\templates\dashboard\join_requests.html:21
-msgid "Requested to join the platform as"
-msgstr "تم طلب الانضمام إلى المنصة كـ"
+#: dashboard/templates/dashboard/index.html:99
+#: frontend/templates/frontend/index.html:309
+msgid "contributer"
+msgstr "مساهم"
 
-#: .\dashboard\templates\dashboard\join_requests.html:22
-msgid "with the following details: "
-msgstr "مع التفاصيل التالية:"
+#: dashboard/templates/dashboard/index.html:111
+#: frontend/templates/frontend/index.html:312
+msgid "seller"
+msgstr "بائع"
 
-#: .\dashboard\templates\dashboard\join_requests.html:25
-#, fuzzy
-#| msgid "Phone Number"
-msgid "Phone Number: "
-msgstr "رقم التليفون:"
+#: dashboard/templates/dashboard/index.html:149
+msgid "Requests Menu Is Empty"
+msgstr "قائمة الطلبات فارغة"
 
-#: .\dashboard\templates\dashboard\join_requests.html:30
-msgid "E-mail: "
-msgstr "بريد إلكتروني:"
+#: dashboard/templates/dashboard/index.html:159
+msgid "Logout"
+msgstr "تسجيل الخروج"
 
-#: .\dashboard\templates\dashboard\join_requests.html:34
-msgid "As: "
-msgstr "مثل:"
+#: dashboard/templates/dashboard/join_requests.html:5
+#: dashboard/templates/dashboard/join_requests.html:10
+msgid "طلبات الانضمام"
+msgstr "طلبات الانضمام"
 
-#: .\dashboard\templates\dashboard\join_requests.html:41
-msgid "No Requests at the moment"
-msgstr "لا يوجد طلبات في الوقت الحالي"
+#: dashboard/templates/dashboard/join_requests.html:24
+msgid "طلب الانضمام إلى المنصة كـ"
+msgstr "طلب الانضمام إلى المنصة كـ"
 
-#: .\dashboard\templates\dashboard\list.html:45
+#: dashboard/templates/dashboard/join_requests.html:29
+msgid "رقم الهاتف:"
+msgstr "رقم الهاتف:"
+
+#: dashboard/templates/dashboard/join_requests.html:34
+msgid "البريد الإلكتروني:"
+msgstr "البريد الإلكتروني:"
+
+#: dashboard/templates/dashboard/join_requests.html:38
+msgid "تاريخ الطلب:"
+msgstr "تاريخ الطلب:"
+
+#: dashboard/templates/dashboard/join_requests.html:46
+msgid "لا توجد طلبات في الوقت الحالي"
+msgstr "لا يوجد طلبات في الوقت الحاضر"
+
+#: dashboard/templates/dashboard/list.html:45
 msgid "الإجراءات"
 msgstr "الإجراءات"
 
-#: .\dashboard\templates\dashboard\products\create.html:15
-#: .\dashboard\templates\dashboard\products\create.html:23
+#: dashboard/templates/dashboard/products/create.html:15
+#: dashboard/templates/dashboard/products/create.html:23
 msgid "Create Product"
 msgstr "إنشاء المنتج"
 
-#: .\dashboard\templates\dashboard\report_create.html:16
+#: dashboard/templates/dashboard/report_create.html:16
 msgid "user"
 msgstr "مستخدم"
 
-#: .\dashboard\templates\dashboard\report_create.html:36
+#: dashboard/templates/dashboard/report_create.html:36
 msgid "Submit"
 msgstr "يُقدِّم"
 
-#: .\dashboard\templates\dashboard\user-edit.html:40
-#: .\dashboard\templates\dashboard\user-edit.html:44
-#: .\dashboard\templates\dashboard\user-view.html:56
+#: dashboard/templates/dashboard/user-edit.html:40
+#: dashboard/templates/dashboard/user-edit.html:44
+#: dashboard/templates/dashboard/user-view.html:56
 msgid "Edit Profile"
 msgstr "تعديل الملف الشخصي"
 
-#: .\dashboard\templates\dashboard\user-edit.html:103
+#: dashboard/templates/dashboard/user-edit.html:103
 msgid "new Password"
 msgstr "كلمة المرور الجديدة"
 
-#: .\dashboard\templates\dashboard\user-edit.html:113
+#: dashboard/templates/dashboard/user-edit.html:113
 msgid "Save Changes"
 msgstr "حفظ التغييرات"
 
-#: .\dashboard\templates\dashboard\user-view.html:10
+#: dashboard/templates/dashboard/user-view.html:10
 msgid "Profile"
 msgstr "حساب تعريفي"
 
-#: .\dashboard\templates\dashboard\user-view.html:14
+#: dashboard/templates/dashboard/user-view.html:14
 msgid "User Profile"
 msgstr "الملف الشخصي للمستخدم"
 
-#: .\dashboard\templates\dashboard\user-view.html:41
-#: .\dashboard\templates\dashboard\users.html:42
+#: dashboard/templates/dashboard/user-view.html:41
+#: dashboard/templates/dashboard/users.html:42
 msgid "Account type"
 msgstr "نوع الحساب"
 
-#: .\dashboard\templates\dashboard\user-view.html:50
+#: dashboard/templates/dashboard/user-view.html:50
 msgid "Last Login"
 msgstr "أخر تسجيل دخول"
 
-#: .\dashboard\templates\dashboard\users.html:33
+#: dashboard/templates/dashboard/users.html:33
 msgid "Profile Picture"
 msgstr "صورة الملف الشخصي"
 
-#: .\dashboard\views.py:55
+#: dashboard/views.py:55
 msgid "First Name is required."
 msgstr "الاسم الأول مطلوب."
 
-#: .\dashboard\views.py:57
+#: dashboard/views.py:57
 msgid "Last Name is required."
 msgstr "الاسم الأخير مطلوب."
 
-#: .\dashboard\views.py:59
+#: dashboard/views.py:59
 msgid "Phone number must be 10 digits long."
 msgstr "يجب أن يكون رقم الهاتف مكونًا من 10 أرقام."
 
-#: .\dashboard\views.py:61
+#: dashboard/views.py:61
 msgid "Invalid account type selected."
 msgstr "تم اختيار نوع حساب غير صالح."
 
-#: .\dashboard\views.py:63
+#: dashboard/views.py:63
 msgid "Password must be at least 4 characters long."
 msgstr "يجب أن تتكون كلمة المرور من 4 أحرف على الأقل."
 
-#: .\frontend\templates\frontend\index.html:8
+#: frontend/templates/frontend/index.html:8
 msgid "A description for your website"
 msgstr "وصف لموقعك على الويب"
 
-#: .\frontend\templates\frontend\index.html:9
+#: frontend/templates/frontend/index.html:9
 msgid "Author Name"
 msgstr "اسم المؤلف"
 
-#: .\frontend\templates\frontend\index.html:11
+#: frontend/templates/frontend/index.html:11
 msgid "Creative"
 msgstr "مبدع"
 
-#: .\frontend\templates\frontend\index.html:50
+#: frontend/templates/frontend/index.html:50
 msgid "Start Bootstrap"
 msgstr "ابدأ Bootstrap"
 
-#: .\frontend\templates\frontend\index.html:51
+#: frontend/templates/frontend/index.html:51
 msgid "Toggle navigation"
 msgstr "تبديل التنقل"
 
-#: .\frontend\templates\frontend\index.html:55
+#: frontend/templates/frontend/index.html:55
 msgid "About"
 msgstr "عن"
 
-#: .\frontend\templates\frontend\index.html:58
+#: frontend/templates/frontend/index.html:58
 msgid "Services"
 msgstr "خدمات"
 
-#: .\frontend\templates\frontend\index.html:61
+#: frontend/templates/frontend/index.html:61
 msgid "Portfolio"
 msgstr "مَلَفّ"
 
-#: .\frontend\templates\frontend\index.html:64
+#: frontend/templates/frontend/index.html:64
 msgid "Contact"
 msgstr "اتصال"
 
-#: .\frontend\templates\frontend\index.html:75
-#: .\user_auth\templates\auth\log-in.html:5
+#: frontend/templates/frontend/index.html:75
+#: user_auth/templates/auth/log-in.html:5
 msgid "Login"
 msgstr "تسجيل الدخول"
 
-#: .\frontend\templates\frontend\index.html:81
+#: frontend/templates/frontend/index.html:81
 msgid "Join Us "
 msgstr "انضم إلينا"
 
-#: .\frontend\templates\frontend\index.html:94
+#: frontend/templates/frontend/index.html:94
 msgid "Your Favorite Place for Free Bootstrap Themes"
 msgstr "مكانك المفضل للحصول على مواضيع Bootstrap المجانية"
 
-#: .\frontend\templates\frontend\index.html:99
+#: frontend/templates/frontend/index.html:99
 msgid ""
 "Start Bootstrap can help you build better websites using the Bootstrap "
 "framework! Just download a theme and start customizing, no strings attached!"
@@ -564,15 +558,15 @@ msgstr ""
 "يمكن أن يساعدك Start Bootstrap في إنشاء مواقع ويب أفضل باستخدام إطار عمل "
 "Bootstrap! ما عليك سوى تنزيل أحد السمات والبدء في التخصيص، دون أي قيود!"
 
-#: .\frontend\templates\frontend\index.html:101
+#: frontend/templates/frontend/index.html:101
 msgid "Find Out More"
 msgstr "اكتشف المزيد"
 
-#: .\frontend\templates\frontend\index.html:111
+#: frontend/templates/frontend/index.html:111
 msgid "We've got what you need!"
 msgstr "لقد حصلنا على ما تحتاجه!"
 
-#: .\frontend\templates\frontend\index.html:114
+#: frontend/templates/frontend/index.html:114
 msgid ""
 "Start Bootstrap has everything you need to get your new website up and "
 "running in no time! Choose one of our open source, free to download, and "
@@ -582,93 +576,93 @@ msgstr ""
 " في وقت قصير! اختر أحد موضوعاتنا مفتوحة المصدر والمجانية للتنزيل وسهلة "
 "الاستخدام! بدون أي قيود!"
 
-#: .\frontend\templates\frontend\index.html:116
+#: frontend/templates/frontend/index.html:116
 msgid "Get Started"
 msgstr "البدء"
 
-#: .\frontend\templates\frontend\index.html:124
+#: frontend/templates/frontend/index.html:124
 msgid "At Your Service"
 msgstr "في خدمتكم"
 
-#: .\frontend\templates\frontend\index.html:132
+#: frontend/templates/frontend/index.html:132
 msgid "Sturdy Themes"
 msgstr "مواضيع قوية"
 
-#: .\frontend\templates\frontend\index.html:134
+#: frontend/templates/frontend/index.html:134
 msgid "Our themes are updated regularly to keep them bug free!"
 msgstr "يتم تحديث موضوعاتنا بانتظام لإبقائها خالية من الأخطاء!"
 
-#: .\frontend\templates\frontend\index.html:143
+#: frontend/templates/frontend/index.html:143
 msgid "Up to Date"
 msgstr "محدثة"
 
-#: .\frontend\templates\frontend\index.html:145
+#: frontend/templates/frontend/index.html:145
 msgid "All dependencies are kept current to keep things fresh."
 msgstr "يتم الاحتفاظ بكل التبعيات محدثة لإبقاء الأمور جديدة."
 
-#: .\frontend\templates\frontend\index.html:154
+#: frontend/templates/frontend/index.html:154
 msgid "Ready to Publish"
 msgstr "جاهز للنشر"
 
-#: .\frontend\templates\frontend\index.html:156
+#: frontend/templates/frontend/index.html:156
 msgid "You can use this design as is, or you can make changes!"
 msgstr "يمكنك استخدام هذا التصميم كما هو، أو يمكنك إجراء تغييرات عليه!"
 
-#: .\frontend\templates\frontend\index.html:165
+#: frontend/templates/frontend/index.html:165
 msgid "Made with Love"
 msgstr "صُنعت بحب"
 
-#: .\frontend\templates\frontend\index.html:167
+#: frontend/templates/frontend/index.html:167
 msgid "Is it really open source if it's not made with love?"
 msgstr "هل هو حقًا مفتوح المصدر إذا لم يتم صنعه بالحب؟"
 
-#: .\frontend\templates\frontend\index.html:179
-#: .\frontend\templates\frontend\index.html:186
-#: .\frontend\templates\frontend\index.html:192
-#: .\frontend\templates\frontend\index.html:199
-#: .\frontend\templates\frontend\index.html:205
-#: .\frontend\templates\frontend\index.html:212
-#: .\frontend\templates\frontend\index.html:218
-#: .\frontend\templates\frontend\index.html:225
-#: .\frontend\templates\frontend\index.html:231
-#: .\frontend\templates\frontend\index.html:238
-#: .\frontend\templates\frontend\index.html:244
-#: .\frontend\templates\frontend\index.html:251
+#: frontend/templates/frontend/index.html:179
+#: frontend/templates/frontend/index.html:186
+#: frontend/templates/frontend/index.html:192
+#: frontend/templates/frontend/index.html:199
+#: frontend/templates/frontend/index.html:205
+#: frontend/templates/frontend/index.html:212
+#: frontend/templates/frontend/index.html:218
+#: frontend/templates/frontend/index.html:225
+#: frontend/templates/frontend/index.html:231
+#: frontend/templates/frontend/index.html:238
+#: frontend/templates/frontend/index.html:244
+#: frontend/templates/frontend/index.html:251
 msgid "Project Name"
 msgstr "اسم المشروع"
 
-#: .\frontend\templates\frontend\index.html:180
-#: .\frontend\templates\frontend\index.html:193
-#: .\frontend\templates\frontend\index.html:206
-#: .\frontend\templates\frontend\index.html:219
-#: .\frontend\templates\frontend\index.html:232
-#: .\frontend\templates\frontend\index.html:245
+#: frontend/templates/frontend/index.html:180
+#: frontend/templates/frontend/index.html:193
+#: frontend/templates/frontend/index.html:206
+#: frontend/templates/frontend/index.html:219
+#: frontend/templates/frontend/index.html:232
+#: frontend/templates/frontend/index.html:245
 msgid "Project Image"
 msgstr "صورة المشروع"
 
-#: .\frontend\templates\frontend\index.html:183
-#: .\frontend\templates\frontend\index.html:196
-#: .\frontend\templates\frontend\index.html:209
-#: .\frontend\templates\frontend\index.html:222
-#: .\frontend\templates\frontend\index.html:235
-#: .\frontend\templates\frontend\index.html:248
+#: frontend/templates/frontend/index.html:183
+#: frontend/templates/frontend/index.html:196
+#: frontend/templates/frontend/index.html:209
+#: frontend/templates/frontend/index.html:222
+#: frontend/templates/frontend/index.html:235
+#: frontend/templates/frontend/index.html:248
 msgid "Category"
 msgstr "فئة"
 
-#: .\frontend\templates\frontend\index.html:262
+#: frontend/templates/frontend/index.html:262
 msgid "Free Download at Start Bootstrap!"
 msgstr "تنزيل مجاني عند بدء تشغيل Bootstrap!"
 
-#: .\frontend\templates\frontend\index.html:263
+#: frontend/templates/frontend/index.html:263
 msgid "Download Now!"
 msgstr "تحميل الآن!"
 
-#: .\frontend\templates\frontend\index.html:271
+#: frontend/templates/frontend/index.html:271
 msgid "Join Us!"
 msgstr "انضم إلينا!"
 
-#: .\frontend\templates\frontend\index.html:274
-#: .\frontend\templates\frontend\index.html:344
+#: frontend/templates/frontend/index.html:274
+#: frontend/templates/frontend/index.html:348
 msgid ""
 "Ready to start your next project with us? Fill out the form below and we "
 "will get back to you as soon as possible!"
@@ -676,120 +670,165 @@ msgstr ""
 "هل أنت مستعد لبدء مشروعك القادم معنا؟ املأ النموذج أدناه وسنتواصل معك في "
 "أقرب وقت ممكن!"
 
-#: .\frontend\templates\frontend\index.html:284
-#: .\frontend\templates\frontend\index.html:352
+#: frontend/templates/frontend/index.html:284
+#: frontend/templates/frontend/index.html:356
 msgid "Enter your name"
 msgstr "أدخل اسمك"
 
-#: .\frontend\templates\frontend\index.html:287
-#: .\frontend\templates\frontend\index.html:355
+#: frontend/templates/frontend/index.html:287
+#: frontend/templates/frontend/index.html:359
 msgid "A name is required."
 msgstr "الاسم مطلوب."
 
-#: .\frontend\templates\frontend\index.html:291
-#: .\frontend\templates\frontend\index.html:359
+#: frontend/templates/frontend/index.html:291
+#: frontend/templates/frontend/index.html:363
 msgid "Enter your email address"
 msgstr "أدخل عنوان بريدك الإلكتروني"
 
-#: .\frontend\templates\frontend\index.html:294
-#: .\frontend\templates\frontend\index.html:362
+#: frontend/templates/frontend/index.html:294
+#: frontend/templates/frontend/index.html:366
 msgid "An email is required."
 msgstr "يجب أن يكون البريد الإلكتروني مطلوبًا."
 
-#: .\frontend\templates\frontend\index.html:297
-#: .\frontend\templates\frontend\index.html:365
+#: frontend/templates/frontend/index.html:297
+#: frontend/templates/frontend/index.html:369
 msgid "Email is not valid."
 msgstr "البريد الإلكتروني غير صالح."
 
-#: .\frontend\templates\frontend\index.html:301
-#: .\frontend\templates\frontend\index.html:369
+#: frontend/templates/frontend/index.html:301
+#: frontend/templates/frontend/index.html:373
 msgid "Enter your phone number"
 msgstr "أدخل رقم هاتفك"
 
-#: .\frontend\templates\frontend\index.html:304
-#: .\frontend\templates\frontend\index.html:372
+#: frontend/templates/frontend/index.html:304
+#: frontend/templates/frontend/index.html:376
 msgid "A phone number is required."
 msgstr "رقم الهاتف مطلوب."
 
-#: .\frontend\templates\frontend\index.html:319
-#: .\frontend\templates\frontend\index.html:385
+#: frontend/templates/frontend/index.html:317
+msgid "I agree to the "
+msgstr "انا أوافق على"
+
+#: frontend/templates/frontend/index.html:318
+msgid "terms & conditions"
+msgstr "الشروط والأحكام"
+
+#: frontend/templates/frontend/index.html:323
+#: frontend/templates/frontend/index.html:389
 msgid "Form submission successful!"
 msgstr "تم إرسال النموذج بنجاح!"
 
-#: .\frontend\templates\frontend\index.html:325
-#: .\frontend\templates\frontend\index.html:391
+#: frontend/templates/frontend/index.html:329
+#: frontend/templates/frontend/index.html:395
 msgid "Error sending message!"
 msgstr "خطأ في إرسال الرسالة!"
 
-#: .\frontend\templates\frontend\index.html:329
+#: frontend/templates/frontend/index.html:333
 #, fuzzy
 #| msgid "New Request "
 msgid "Send Request"
 msgstr "إرسال الطلب"
 
-#: .\frontend\templates\frontend\index.html:341
+#: frontend/templates/frontend/index.html:345
 msgid "Let's Get In Touch!"
 msgstr "دعونا نتواصل!"
 
-#: .\frontend\templates\frontend\index.html:376
+#: frontend/templates/frontend/index.html:380
 msgid "Enter your message"
 msgstr "أدخل رسالتك"
 
-#: .\frontend\templates\frontend\index.html:377
+#: frontend/templates/frontend/index.html:381
 msgid "Message"
 msgstr "رسالة"
 
-#: .\frontend\templates\frontend\index.html:379
+#: frontend/templates/frontend/index.html:383
 msgid "A message is required."
 msgstr "الرسالة مطلوبة."
 
-#: .\frontend\templates\frontend\index.html:394
+#: frontend/templates/frontend/index.html:398
 msgid "Send Message"
 msgstr "إرسال رسالة"
 
-#: .\frontend\templates\frontend\index.html:406
+#: frontend/templates/frontend/index.html:410
 msgid "Copyright &copy; Your Website 2023"
 msgstr "حقوق الطبع والنشر محفوظة لموقعك 2023"
 
-#: .\frontend\templates\frontend\index.html:461
+#: frontend/templates/frontend/index.html:459
+#: frontend/templates/frontend/index.html:467
+msgid "Close"
+msgstr "يغلق"
+
+#: frontend/templates/frontend/index.html:466
 msgid "Error submitting the request. Please try again later."
 msgstr "حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى لاحقًا."
 
-#: .\user_auth\models.py:8
+#: user_auth/models.py:8
 #, fuzzy
 #| msgid "Email or Phone Number"
 msgid "The Email or Phone number field must be set"
 msgstr "يجب تعيين حقل البريد الإلكتروني أو رقم الهاتف"
 
-#: .\user_auth\models.py:24
+#: user_auth/models.py:17
+#, fuzzy
+#| msgid "Phone number must be 10 digits long."
+msgid "Phone number should be a 10-digit number"
+msgstr "يجب أن يكون رقم الهاتف مكونًا من 10 أرقام"
+
+#: user_auth/models.py:28
 msgid "Superuser must have is_staff=True."
 msgstr "يجب أن يكون لدى المستخدم المتميز is_staff=True."
 
-#: .\user_auth\models.py:26
+#: user_auth/models.py:30
 msgid "Superuser must have is_superuser=True."
 msgstr "يجب أن يكون لدى المستخدم الفائق is_superuser=True."
 
-#: .\user_auth\models.py:36
+#: user_auth/models.py:40
 #, fuzzy
 #| msgid "administator"
 msgid "Administrator"
 msgstr "مدير"
 
-#: .\user_auth\templates\auth\log-in.html:22
+#: user_auth/templates/auth/log-in.html:22
 msgid "Log In"
 msgstr "تسجيل الدخول"
 
-#: .\user_auth\templates\auth\log-in.html:32
+#: user_auth/templates/auth/log-in.html:32
 msgid "Email or Phone Number"
 msgstr "البريد الإلكتروني أو رقم الهاتف"
 
-#: .\user_auth\templates\auth\log-in.html:46
+#: user_auth/templates/auth/log-in.html:46
 msgid "LOG IN"
 msgstr "تسجيل الدخول"
 
-#: .\user_auth\views.py:31
+#: user_auth/views.py:31
 msgid "Invalid email/phone number or password."
 msgstr "البريد الإلكتروني/رقم الهاتف أو كلمة المرور غير صالحة."
+
+#~ msgid " Privacy Policy"
+#~ msgstr "سياسة الخصوصية"
+
+#, fuzzy
+#~ msgid "Join Request"
+#~ msgstr "طلب الانضمام"
+
+#~ msgid "Requested to join the platform as"
+#~ msgstr "تم طلب الانضمام إلى المنصة كـ"
+
+#~ msgid "with the following details: "
+#~ msgstr "مع التفاصيل التالية:"
+
+#, fuzzy
+#~ msgid "Phone Number: "
+#~ msgstr "رقم التليفون:"
+
+#~ msgid "E-mail: "
+#~ msgstr "بريد إلكتروني:"
+
+#~ msgid "As: "
+#~ msgstr "مثل:"
+
+#~ msgid "No Requests at the moment"
+#~ msgstr "لا يوجد طلبات في الوقت الحالي"
 
 #, fuzzy
 #~ msgid "request of"

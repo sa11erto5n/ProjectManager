@@ -309,7 +309,11 @@
                     {% trans 'seller' %}
                   </option>
                 </select>
-
+                <span class="d-flex my-2">
+                  <input type="checkbox" class='m-1' name="privacy_policy_checkbox" id="privacy_policy_checkbox">
+                  {% trans "I agree to the " %} 
+                  <a href="{% url 'frontend:terms-and-conditions' %}" class='mx-2' target="_blank">{% trans "terms & conditions" %}</a>
+                </span>
                 <div class="d-none" id="submitSuccessMessage">
                   <div class="text-center mb-3">
                     <div class="fw-bolder">
@@ -428,12 +432,12 @@
           e.preventDefault()
       
           const requestData = {
+            r_checkbox: $('#privacy_policy_checkbox').prop('checked'),
             r_name: $('#name').val(),
             r_email: $('#email').val(),
             r_phone: $('#phone').val(),
             r_role: $('#role').val()
           }
-      
           $.ajax({
             url: "{% url 'dash:join_request_create' %}",
             type: 'POST',

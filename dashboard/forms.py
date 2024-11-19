@@ -9,8 +9,11 @@ User = get_user_model()
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['product_name', 'product_quantity', 'product_price', 'product_image']
+        fields = ['product_id','product_name', 'product_quantity', 'product_price']
         widgets = {
+            'product_id': forms.TextInput(attrs={
+                'class': 'form-control',
+            }),
             'product_name': forms.TextInput(attrs={
                 'class': 'form-control',
             }),
@@ -45,7 +48,7 @@ class ContributionForm(forms.ModelForm):
         User = get_user_model()
         
         # Filter users based on account_type
-        self.fields['user'].queryset = User.objects.filter(account_type='contributor')
+        self.fields['user'].queryset = User.objects.filter(account_type='contributer')
 
 # Report Form
 class ReportForm(forms.ModelForm):

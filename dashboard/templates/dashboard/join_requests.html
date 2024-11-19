@@ -1,50 +1,111 @@
-{% extends 'dashboard/index.html' %}
+{% extends "dashboard/index.html" %}
 {% load i18n static %}
-
 {% block subtitle %}
-  - {% trans 'طلبات الانضمام' %}
-{% endblock %}
+  -{% trans "طلبات الانضمام" %}
+{% endblock subtitle %}
 
 {% block heading %}
   <div class="d-flex align-items-center justify-content-between">
-    <h2 class="mb-0">{% trans 'طلبات الانضمام' %}</h2>
+    <h2 class="mb-0">{% trans "الطلبات" %}</h2>
   </div>
-{% endblock %}
+{% endblock heading %}
 
 {% block PageContent %}
-  <div class="bg-light p-4 rounded" dir="rtl" style="font-family: 'Cairo', sans-serif; font-size: 16px;">
-    {% if objects %}
-      <div class="row">
-        {% for item in objects %}
-          <div class="col-md-6">
-            <div class="card mb-4 shadow-sm">
-              <div class="card-body">
-                <h5 class="card-title">{{ item.name }}</h5>
-                <p class="card-text text-muted">
-                  {% trans 'طلب الانضمام إلى المنصة كـ' %}
-                  <span class="badge bg-blue">{{ item.get_role_display }}</span>
-                </p>
-                <hr />
-                <p class="mb-1">
-                  <strong>{% trans 'رقم الهاتف:' %}</strong>
-                  {{ item.phone }}
-                </p>
-                {% if item.email %}
-                  <p class="mb-1">
-                    <strong>{% trans 'البريد الإلكتروني:' %}</strong>
-                    {{ item.email }}
-                  </p>
-                {% endif %}
-                <small class="text-muted"><strong>{% trans 'تاريخ الطلب:' %}</strong> {{ item.created_at|date:'d M Y' }}</small>
+  <div class="bg-light p-4 rounded"
+       dir="rtl"
+       style="font-family:"
+       Cairo
+       "
+       sans-serif
+       font-size:
+       16px
+       ">
+    <!-- Tabs navigation -->
+    <ul class="nav nav-tabs" id="requestTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active"
+           id="join-tab"
+           data-bs-toggle="tab"
+           href="#join"
+           role="tab"
+           aria-controls="join"
+           aria-selected="true">{% trans "طلبات الانضمام" %}</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link"
+           id="reinvest-tab"
+           data-bs-toggle="tab"
+           href="#reinvest"
+           role="tab"
+           aria-controls="reinvest"
+           aria-selected="false">{% trans "طلبات إعادة الاستثمار" %}</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link"
+           id="refund-tab"
+           data-bs-toggle="tab"
+           href="#refund"
+           role="tab"
+           aria-controls="refund"
+           aria-selected="false">{% trans "طلبات الاسترجاع" %}</a>
+      </li>
+    </ul>
+    <!-- Tabs content -->
+    <div class="tab-content mt-3" id="requestTabsContent">
+      <!-- Join Requests Tab -->
+      <div class="tab-pane fade show active"
+           id="join"
+           role="tabpanel"
+           aria-labelledby="join-tab">
+        {% if objects %}
+          <div class="row">
+            {% for item in objects %}
+              <div class="col-md-6">
+                <div class="card mb-4 shadow-sm">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ item.name }}</h5>
+                    <p class="card-text text-muted">
+                      {% trans "طلب الانضمام إلى المنصة كـ" %}
+                      <span class="badge bg-blue">{{ item.get_role_display }}</span>
+                    </p>
+                    <hr />
+                    <p class="mb-1">
+                      <strong>{% trans "رقم الهاتف:" %}</strong>
+                      {{ item.phone }}
+                    </p>
+                    {% if item.email %}
+                      <p class="mb-1">
+                        <strong>{% trans "البريد الإلكتروني:" %}</strong>
+                        {{ item.email }}
+                      </p>
+                    {% endif %}
+                    <small class="text-muted"><strong>{% trans "تاريخ الطلب:" %}</strong> {{ item.created_at|date:"d M Y" }}</small>
+                  </div>
+                </div>
               </div>
-            </div>
+            {% endfor %}
           </div>
-        {% endfor %}
+        {% else %}
+          <div class="alert alert-warning text-center">{% trans "لا توجد طلبات في الوقت الحالي" %}</div>
+        {% endif %}
       </div>
-    {% else %}
-      <div class="alert alert-warning text-center">
-        {% trans 'لا توجد طلبات في الوقت الحالي' %}
+      {% if %}{% endif %}
+      <!-- Re-invest Requests Tab -->
+      <div class="tab-pane fade"
+           id="reinvest"
+           role="tabpanel"
+           aria-labelledby="reinvest-tab">
+        <!-- You can add content here when you need -->
+        <div class="alert alert-info text-center">{% trans "لا توجد طلبات إعادة استثمار في الوقت الحالي" %}</div>
       </div>
-    {% endif %}
+      <!-- Refund Requests Tab -->
+      <div class="tab-pane fade"
+           id="refund"
+           role="tabpanel"
+           aria-labelledby="refund-tab">
+        <!-- You can add content here when you need -->
+        <div class="alert alert-info text-center">{% trans "لا توجد طلبات استرجاع في الوقت الحالي" %}</div>
+      </div>
+    </div>
   </div>
-{% endblock %}
+{% endblock PageContent %}

@@ -6,15 +6,17 @@ from django.core.exceptions import ValidationError
 UserModel = get_user_model()
 
 class Product(models.Model):
+    product_id              = models.CharField(verbose_name=_('Product Code'),max_length=120,unique=True)
     product_name            = models.CharField(max_length=100,verbose_name=_('Product Name'))
     product_quantity        = models.IntegerField(verbose_name=_('Product Quantity'))
     remaining_quantity      = models.IntegerField(verbose_name=_('Remaining Quantity'), default=0)
     product_price           = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=_('Price'))
-    product_image           = models.ImageField(upload_to='products/', max_length=1200, verbose_name=_('Product Image'))
+    #product_image           = models.ImageField(upload_to='products/', max_length=1200, verbose_name=_('Product Image'))
+    
     date_added              = models.DateField(auto_now_add=True)
     
     def __str__(self):
-        return self.product_name
+        return self.product_id
     
 class Contribution(models.Model):
     user                    = models.ForeignKey(UserModel, on_delete=models.DO_NOTHING, related_name='contributions', verbose_name=_('User'))
@@ -69,9 +71,13 @@ class Request(models.Model):
     project = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='requests', verbose_name=_('Project'))
     earning = models.ForeignKey(Earning, on_delete=models.CASCADE, related_name='requests', verbose_name=_('Earning'))
     request_type = models.CharField(max_length=10, choices=TYPE_CHOICES, verbose_name=_('Request Type'))
-
+    status = models.BooleanField(verbose_name=_('Request Status'),default=False)
+    date_added  = models.DateField(auto_now_add=True, verbose_name=_('Date Added'))
 
     def __str__(self):
+        if self.request_type == 'refund':
+            self.earning.delete()
+            
         return _('Request by %(user)s for %(project)s - %(request_type)s') % {
             'user': self.user,
             'project': self.project,

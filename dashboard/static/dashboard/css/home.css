@@ -23,7 +23,7 @@
 }
 #overview .product
 {
-    max-width: 18rem;
+    max-width: 32%;
     background-color: var(--bs-light);
     padding: 5px;
     border-radius: 5px;
